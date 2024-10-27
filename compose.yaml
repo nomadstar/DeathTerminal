@@ -1,6 +1,37 @@
 
 services:
 
+# Bus Interface
+  bus:
+    image: jrgiadach/soabus:latest
+    # insert ports to connect
+    tty: true
+    container_name: giadachbus
+
+# Postgres Database
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./dbtemplate:/var/lib/postgresql/data
+    # insert ports to connect
+    tty: true
+    container_name: postgresdb
+
+# Python container for the backend
+  backend:
+    build: 
+      context: ./pythonifacetemplate
+      dockerfile: backpython.dockerfile
+    # insert ports to connect
+    tty: true
+    container_name: godot-backend
+
 # Godot Interface
   frontiface:
     build: 
@@ -9,6 +40,7 @@ services:
     ports:
       - "12345:12345"
       - "12345:12345/udp"
+    # insert ports to connect
     tty: true
     container_name: godot-server
     
