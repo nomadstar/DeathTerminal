@@ -2,8 +2,10 @@
 FROM alpine:latest
 
 # Environment Variables
-ENV GODOT_VERSION "3.2.3" # Version of Godot to download
-ENV GODOT_GAME_NAME "" # Name of the PCK file you want to run on the server
+ENV GODOT_VERSION "3.2.3" 
+# Version of Godot to download
+ENV GODOT_GAME_NAME "" 
+# Name of the PCK file you want to run on the server
 ENV HTTPS_GIT_REPO ""
 
 # Updates and installs
