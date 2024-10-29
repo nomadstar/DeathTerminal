@@ -32,15 +32,11 @@ services:
     tty: true
     container_name: godot-backend
 
-# Godot Interface
-  frontiface:
+# MonoGame container for the frontend
+  frontend:
+    # run $ docker build --build-arg MONOGAME_VERSION=3.4 .
     build: 
-      context: ./frontiface
-      dockerfile: template.dockerfile
-    ports:
-      - "12345:12345"
-      - "12345:12345/udp"
-    # insert ports to connect
-    tty: true
-    container_name: godot-server
-    
+      context: ./monogametemplate
+      dockerfile: frontmonogame.dockerfile
+            
+
