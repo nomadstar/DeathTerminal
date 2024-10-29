@@ -7,3 +7,5 @@
  # Fuentes y Agradecimientos
 
 [GodotServer-Docker](https://github.com/GodotNuts/GodotServer-Docker)
+[Ninjarobot](https://github.com/ninjarobot/mono-in-docker)
+[MonoGameBaseImage](https://github.com/mikescandy/MonoGameBaseImage/blob/main/Dockerfile)
