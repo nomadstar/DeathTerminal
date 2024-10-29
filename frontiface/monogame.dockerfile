@@ -1,6 +1,5 @@
-FROM gmantaos/monogame AS monogame
-#Setup Version
-ARG MONOGAME_VERSION=3.8.0.1641
-WORKDIR /game
-COPY ./gamefiles ./game
-RUN if [ "$(ls -A /game)" ]; then dotnet new mgdesktool; fi
+FROM gmantaos/monogame:3 AS monogame
+
+CMD apt install wget curl p7zip-full wine64 && \
+wget -qO- https://monogame.net/downloads/net8_mgfxc_wine_setup.sh | bash
+

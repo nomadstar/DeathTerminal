@@ -36,7 +36,9 @@ services:
   frontend:
     # run $ docker build --build-arg MONOGAME_VERSION=3.4 .
     build: 
-      context: ./monogametemplate
-      dockerfile: frontmonogame.dockerfile
-            
+      context: ./frontiface
+      dockerfile: monogame.dockerfile
+    tty: true
+    container_name: MonoGameFrontend
+
 
