@@ -4,9 +4,9 @@ WORKDIR /usr/src/app
 
 COPY requirements.txt ./
 COPY example.py ./usr/src/app
-
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD [ "python", "./example.py" ]
+CMD [ "python", "./example.py" ] 
+# Remplaza example.py por el archivo que tu quieras ;D

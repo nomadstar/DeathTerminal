@@ -4,9 +4,23 @@ services:
 # Bus Interface
   bus:
     image: jrgiadach/soabus:latest
-    # insert ports to connect
+    # pongale puerto!
     tty: true
     container_name: giadachbus
+
+# MonoGame container para el frontend tuneado
+  frontend:
+    #build de monogame sacada de Monogame Image en readme.md
+    build:
+      context: ./frontiface
+      dockerfile: monogame.dockerfile
+      args:
+        - workdir=./gamefiles
+    volumes:
+      - ./frontiface/gamefiles:/usr/src/app #Cambia este directorio donde trabajes con el monoGame
+    # pongale puerto!
+    tty: true
+    container_name: MonoGameFrontend
 
 # Postgres Database
   db:
@@ -16,29 +30,25 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: db
     ports:
-      - "5432:5432"
+      - "5432:5432" #cambia los puertos segun la nececidad
     volumes:
       - ./dbtemplate:/var/lib/postgresql/data
-    # insert ports to connect
+  
     tty: true
     container_name: postgresdb
 
-# Python container for the backend
+# Python container para el backend
   backend:
     build: 
       context: ./pythonifacetemplate
       dockerfile: backpython.dockerfile
-    # insert ports to connect
+    # pongale puerto!
     tty: true
-    container_name: godot-backend
+    container_name: cool-backend
 
-# MonoGame container for the frontend
-  frontend:
-    # run $ docker build --build-arg MONOGAME_VERSION=3.4 .
-    build:
-      context: ./frontiface
-      dockerfile: mono.dockerfile 
-    tty: true
-    container_name: MonoGameFrontend
+
+
+# run in next order -> bus, frontend, backend, db    
+
 
 
