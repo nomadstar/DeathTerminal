@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY requirements.txt .
 COPY ./workfiles/ ./usr/src/app
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r pluginlist.txt
 
 COPY . .
 
