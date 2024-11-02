@@ -43,4 +43,5 @@ export DEBIAN_FRONTEND=noninteractive
 
     apt-get remove -y xvfb p7zip-full gnupg curl \
     && apt-get autoremove -y \
-    && apt-get autoclean -y 
+    && apt-get autoclean -y \
+    && dotnet new install MonoGame.Templates.CSharp

@@ -42,6 +42,7 @@ services:
     build: 
       context: ./pythonifacetemplate
       dockerfile: backpython.dockerfile
+    
     # pongale puerto!
     tty: true
     container_name: cool-backend
