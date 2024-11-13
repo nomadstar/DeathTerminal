@@ -238,19 +238,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/imzamora/.nuget/packages/": {}
+    "C:\\Users\\ignac\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/imzamora/Documents/GitHub/DeathTerminal/frontiface/gamefiles/DeathTerminal/DeathTerminal.csproj",
+      "projectUniqueName": "D:\\Codigo\\Github\\DeathTerminal\\frontiface\\gamefiles\\DeathTerminal\\DeathTerminal.csproj",
       "projectName": "DeathTerminal",
-      "projectPath": "/Users/imzamora/Documents/GitHub/DeathTerminal/frontiface/gamefiles/DeathTerminal/DeathTerminal.csproj",
-      "packagesPath": "/Users/imzamora/.nuget/packages/",
-      "outputPath": "/Users/imzamora/Documents/GitHub/DeathTerminal/frontiface/gamefiles/DeathTerminal/obj/",
+      "projectPath": "D:\\Codigo\\Github\\DeathTerminal\\frontiface\\gamefiles\\DeathTerminal\\DeathTerminal.csproj",
+      "packagesPath": "C:\\Users\\ignac\\.nuget\\packages\\",
+      "outputPath": "D:\\Codigo\\Github\\DeathTerminal\\frontiface\\gamefiles\\DeathTerminal\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/imzamora/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\ignac\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -304,7 +304,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
