@@ -14,8 +14,6 @@ services:
     build:
       context: ./frontiface
       dockerfile: monogame.dockerfile
-      args:
-        - workdir=./gamefiles
     volumes:
       - ./frontiface/gamefiles:/usr/src/app #Cambia este directorio donde trabajes con el monoGame
      #pongale puerto!
