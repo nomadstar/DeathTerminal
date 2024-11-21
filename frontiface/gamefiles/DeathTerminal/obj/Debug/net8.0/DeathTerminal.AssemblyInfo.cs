@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DeathTerminal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+942b11e976a1515b9e49329157bd585b426f5021")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5dc3b93bff978b77e313340a0740563c06765b14")]
 [assembly: System.Reflection.AssemblyProductAttribute("DeathTerminal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DeathTerminal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
