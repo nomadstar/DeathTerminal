@@ -16,8 +16,8 @@ export DEBIAN_FRONTEND=noninteractive
     rm packages-microsoft-prod.deb
 
     # Install .NET
-    apt-get update 
-    apt-get install -y --no-install-recommends \
+    apt-get update \
+    && apt-get install -y --no-install-recommends \
         apt-transport-https \
         dotnet-sdk-5.0 \
         dotnet-sdk-3.1 \
