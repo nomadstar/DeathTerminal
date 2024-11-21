@@ -13,7 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin Combat/Characters/Mobs/SkullyMan/Angry/IMG-20241112-WA0009.png
+#begin Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0004.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -23,9 +23,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Combat/Characters/Mobs/SkullyMan/Angry/IMG-20241112-WA0009.png
+/build:Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0004.png
 
-#begin Combat/Characters/Mobs/SkullyMan/Angry/IMG-20241112-WA0010.png
+#begin Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0006.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -35,9 +35,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Combat/Characters/Mobs/SkullyMan/Angry/IMG-20241112-WA0010.png
+/build:Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0006.png
 
-#begin Combat/Characters/Mobs/SkullyMan/Angry/IMG-20241112-WA0011.png
+#begin Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0007.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -47,9 +47,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Combat/Characters/Mobs/SkullyMan/Angry/IMG-20241112-WA0011.png
+/build:Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0007.png
 
-#begin Combat/Characters/Mobs/SkullyMan/Angry/IMG-20241112-WA0012.png
+#begin Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0008.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -59,9 +59,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Combat/Characters/Mobs/SkullyMan/Angry/IMG-20241112-WA0012.png
+/build:Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0008.png
 
-#begin Combat/Characters/Mobs/SkullyMan/Angry/IMG-20241112-WA0013.png
+#begin Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0009.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -71,9 +71,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Combat/Characters/Mobs/SkullyMan/Angry/IMG-20241112-WA0013.png
+/build:Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0009.png
 
-#begin Combat/Characters/Mobs/SkullyMan/Angry/IMG-20241112-WA0014.png
+#begin Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0010.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -83,9 +83,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Combat/Characters/Mobs/SkullyMan/Angry/IMG-20241112-WA0014.png
+/build:Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0010.png
 
-#begin Combat/Characters/Mobs/SkullyMan/Grin/IMG-20241112-WA0015.png
+#begin Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0011.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -95,9 +95,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Combat/Characters/Mobs/SkullyMan/Grin/IMG-20241112-WA0015.png
+/build:Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0011.png
 
-#begin Combat/Characters/Mobs/SkullyMan/Grin/IMG-20241112-WA0016.png
+#begin Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0012.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -107,9 +107,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Combat/Characters/Mobs/SkullyMan/Grin/IMG-20241112-WA0016.png
+/build:Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0012.png
 
-#begin Combat/Characters/Mobs/SkullyMan/Laugh/IMG-20241112-WA0017.png
+#begin Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0013.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -119,9 +119,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Combat/Characters/Mobs/SkullyMan/Laugh/IMG-20241112-WA0017.png
+/build:Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0013.png
 
-#begin Combat/Characters/Mobs/SkullyMan/Laugh/IMG-20241112-WA0018.png
+#begin Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0014.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -131,9 +131,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Combat/Characters/Mobs/SkullyMan/Laugh/IMG-20241112-WA0018.png
+/build:Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0014.png
 
-#begin Combat/Characters/Mobs/SkullyMan/Laugh/IMG-20241112-WA0019.png
+#begin Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0015.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -143,9 +143,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Combat/Characters/Mobs/SkullyMan/Laugh/IMG-20241112-WA0019.png
+/build:Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0015.png
 
-#begin Combat/Characters/Mobs/SkullyMan/Laugh/IMG-20241112-WA0020.png
+#begin Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0016.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -155,9 +155,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Combat/Characters/Mobs/SkullyMan/Laugh/IMG-20241112-WA0020.png
+/build:Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0016.png
 
-#begin Combat/Characters/Mobs/SkullyMan/Laugh/IMG-20241112-WA0021.png
+#begin Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0017.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -167,9 +167,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Combat/Characters/Mobs/SkullyMan/Laugh/IMG-20241112-WA0021.png
+/build:Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0017.png
 
-#begin Combat/Characters/Mobs/SkullyMan/Scared/IMG-20241112-WA0004.png
+#begin Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0018.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -179,9 +179,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Combat/Characters/Mobs/SkullyMan/Scared/IMG-20241112-WA0004.png
+/build:Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0018.png
 
-#begin Combat/Characters/Mobs/SkullyMan/Scared/IMG-20241112-WA0006.png
+#begin Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0019.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -191,9 +191,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Combat/Characters/Mobs/SkullyMan/Scared/IMG-20241112-WA0006.png
+/build:Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0019.png
 
-#begin Combat/Characters/Mobs/SkullyMan/Scared/IMG-20241112-WA0007.png
+#begin Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0020.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -203,9 +203,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Combat/Characters/Mobs/SkullyMan/Scared/IMG-20241112-WA0007.png
+/build:Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0020.png
 
-#begin Combat/Characters/Mobs/SkullyMan/Surprised/IMG-20241112-WA0008.png
+#begin Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0021.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -215,473 +215,5 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Combat/Characters/Mobs/SkullyMan/Surprised/IMG-20241112-WA0008.png
-
-#begin Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 04.gif
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 04.gif
-
-#begin Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 04.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 04.png
-
-#begin Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 05.gif
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 05.gif
-
-#begin Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 05.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 05.png
-
-#begin Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 06.gif
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 06.gif
-
-#begin Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 06.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 06.png
-
-#begin Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 07.gif
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 07.gif
-
-#begin Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 07.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 07.png
-
-#begin Combat/Misc/FX/AirDirt/Green Effect Bullet Impact Explosion 32x32.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/AirDirt/Green Effect Bullet Impact Explosion 32x32.png
-
-#begin Combat/Misc/FX/AirDirt/Introl Green Effect Bullet Impact Explosion 32x32.gif
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/AirDirt/Introl Green Effect Bullet Impact Explosion 32x32.gif
-
-#begin Combat/Misc/FX/AirDirt/Introl Yellow Effect Bullet Impact Explosion 32x32.gif
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/AirDirt/Introl Yellow Effect Bullet Impact Explosion 32x32.gif
-
-#begin Combat/Misc/FX/AirDirt/Yellow Effect Bullet Impact Explosion 32x32.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/AirDirt/Yellow Effect Bullet Impact Explosion 32x32.png
-
-#begin Combat/Misc/FX/ElectroMagic/Blue Effect Bullet Impact Explosion 32x32.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/ElectroMagic/Blue Effect Bullet Impact Explosion 32x32.png
-
-#begin Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 04.gif
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 04.gif
-
-#begin Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 04.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 04.png
-
-#begin Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 05.gif
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 05.gif
-
-#begin Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 05.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 05.png
-
-#begin Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 06.gif
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 06.gif
-
-#begin Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 06.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 06.png
-
-#begin Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 07.gif
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 07.gif
-
-#begin Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 07.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 07.png
-
-#begin Combat/Misc/FX/ElectroMagic/Introl Blue Effect Bullet Impact Explosion 32x32.gif
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/ElectroMagic/Introl Blue Effect Bullet Impact Explosion 32x32.gif
-
-#begin Combat/Misc/FX/ElectroMagic/Introl Purple Effect Bullet Impact Explosion 32x32.gif
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/ElectroMagic/Introl Purple Effect Bullet Impact Explosion 32x32.gif
-
-#begin Combat/Misc/FX/ElectroMagic/Purple Effect Bullet Impact Explosion 32x32.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/ElectroMagic/Purple Effect Bullet Impact Explosion 32x32.png
-
-#begin Combat/Misc/FX/FireExplosions/Introl Red Effect Bullet Impact Explosion 32x32.gif
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/FireExplosions/Introl Red Effect Bullet Impact Explosion 32x32.gif
-
-#begin Combat/Misc/FX/FireExplosions/Introl Yellow Effect Bullet Impact Explosion 32x32.gif
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/FireExplosions/Introl Yellow Effect Bullet Impact Explosion 32x32.gif
-
-#begin Combat/Misc/FX/FireExplosions/Red Effect Bullet Impact Explosion 32x32.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/FireExplosions/Red Effect Bullet Impact Explosion 32x32.png
-
-#begin Combat/Misc/FX/FireExplosions/Yellow Effect Bullet Impact Explosion 32x32.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/FireExplosions/Yellow Effect Bullet Impact Explosion 32x32.png
-
-#begin Combat/Misc/FX/WaterIce/Blue Effect Bullet Impact Explosion 32x32.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/WaterIce/Blue Effect Bullet Impact Explosion 32x32.png
-
-#begin Combat/Misc/FX/WaterIce/Introl Blue Effect Bullet Impact Explosion 32x32.gif
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Combat/Misc/FX/WaterIce/Introl Blue Effect Bullet Impact Explosion 32x32.gif
-
-#begin World/Characters/NPC/director.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:World/Characters/NPC/director.png
-
-#begin World/Characters/NPC/scientist.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:World/Characters/NPC/scientist.png
-
-#begin World/Maps/Inside/Home/sliding_doors.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:World/Maps/Inside/Home/sliding_doors.png
-
-#begin World/Maps/Inside/Home/walls.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:World/Maps/Inside/Home/walls.png
-
-#begin World/Objects/Tech/computer.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:World/Objects/Tech/computer.png
-
-#begin World/Objects/Tech/director.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:World/Objects/Tech/director.png
-
-#begin World/Objects/Tech/drone.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:World/Objects/Tech/drone.png
-
-#begin World/Objects/Tech/monitor_popup.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:World/Objects/Tech/monitor_popup.png
-
-#begin World/Objects/Tech/spare_robot_parts.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:World/Objects/Tech/spare_robot_parts.png
+/build:Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0021.png
 

@@ -4,103 +4,25 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/Angry/IMG-20241112-WA0009.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/Angry/IMG-20241112-WA0010.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/Angry/IMG-20241112-WA0011.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/Angry/IMG-20241112-WA0012.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/Angry/IMG-20241112-WA0013.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/Angry/IMG-20241112-WA0014.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/Grin/IMG-20241112-WA0015.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/Grin/IMG-20241112-WA0016.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/Laugh/IMG-20241112-WA0017.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/Laugh/IMG-20241112-WA0018.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/Laugh/IMG-20241112-WA0019.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/Laugh/IMG-20241112-WA0020.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/Laugh/IMG-20241112-WA0021.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/Scared/IMG-20241112-WA0004.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/Scared/IMG-20241112-WA0006.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/Scared/IMG-20241112-WA0007.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/Surprised/IMG-20241112-WA0008.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 04.gif</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 04.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 05.gif</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 05.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 06.gif</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 06.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 07.gif</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/AirDirt/Free Smoke Fx  Pixel 07.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/AirDirt/Green Effect Bullet Impact Explosion 32x32.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/AirDirt/Introl Green Effect Bullet Impact Explosion 32x32.gif</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/AirDirt/Introl Yellow Effect Bullet Impact Explosion 32x32.gif</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/AirDirt/Yellow Effect Bullet Impact Explosion 32x32.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/ElectroMagic/Blue Effect Bullet Impact Explosion 32x32.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 04.gif</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 04.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 05.gif</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 05.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 06.gif</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 06.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 07.gif</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/ElectroMagic/Free Smoke Fx  Pixel 07.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/ElectroMagic/Introl Blue Effect Bullet Impact Explosion 32x32.gif</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/ElectroMagic/Introl Purple Effect Bullet Impact Explosion 32x32.gif</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/ElectroMagic/Purple Effect Bullet Impact Explosion 32x32.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/FireExplosions/Introl Red Effect Bullet Impact Explosion 32x32.gif</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/FireExplosions/Introl Yellow Effect Bullet Impact Explosion 32x32.gif</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/FireExplosions/Red Effect Bullet Impact Explosion 32x32.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/FireExplosions/Yellow Effect Bullet Impact Explosion 32x32.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/WaterIce/Blue Effect Bullet Impact Explosion 32x32.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Misc/FX/WaterIce/Introl Blue Effect Bullet Impact Explosion 32x32.gif</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/World/Characters/NPC/director.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/World/Characters/NPC/scientist.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/World/Maps/Inside/Home/sliding_doors.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/World/Maps/Inside/Home/walls.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/World/Objects/Tech/computer.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/World/Objects/Tech/director.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/World/Objects/Tech/drone.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/World/Objects/Tech/monitor_popup.png</File>
-    <File>d:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/World/Objects/Tech/spare_robot_parts.png</File>
+    <File>D:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0004.png</File>
+    <File>D:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0006.png</File>
+    <File>D:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0007.png</File>
+    <File>D:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0008.png</File>
+    <File>D:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0009.png</File>
+    <File>D:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0010.png</File>
+    <File>D:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0011.png</File>
+    <File>D:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0012.png</File>
+    <File>D:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0013.png</File>
+    <File>D:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0014.png</File>
+    <File>D:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0015.png</File>
+    <File>D:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0016.png</File>
+    <File>D:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0017.png</File>
+    <File>D:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0018.png</File>
+    <File>D:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0019.png</File>
+    <File>D:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0020.png</File>
+    <File>D:/Codigo/Github/DeathTerminal/frontiface/gamefiles/DeathTerminal/Content/Combat/Characters/Mobs/SkullyMan/IMG-20241112-WA0021.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
