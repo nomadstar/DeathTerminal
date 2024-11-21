@@ -24,14 +24,18 @@ services:
   db:
     image: postgres:latest
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: db
+      POSTGRES_USER: user                     # Usuario de la base de datos
+      POSTGRES_PASSWORD: password             # Contraseña del usuario
+      POSTGRES_DB: db                         # Nombre de la base de datos
     ports:
-      - "5432:5432" #cambia los puertos segun la nececidad
-  
+      - "5432:5432"                           # Mapea el puerto 5432 al anfitrión
+    volumes:
+      - './sql/data:/var/lib/postgresql/data'  # Persistencia de datos en sql/data
+      - './sql/init-scripts:/docker-entrypoint-initdb.d'  # Scripts de inicialización
     tty: true
     container_name: postgresdb
+#  volumes:  #si quisieramos que los datos percistan aunque se use docker stop o down
+#  postgres_data: {}
 
 # Python container para el backend
   backend:
