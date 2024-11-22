@@ -21,7 +21,7 @@ Una descripción de como levantar el servicio.
 
 ## Fuentes y Agradecimientos
 
-[GodotServer-Docker](https://github.com/GodotNuts/GodotServer-Docker) -> No utilizado
-[Ninjarobot](https://github.com/ninjarobot/mono-in-docker) -> Utilizado
-[MonoGameBaseImage](https://github.com/mikescandy/MonoGameBaseImage/blob/main/Dockerfile) -> Utilizado
-[Servicio SOA](https://github.com/nicobrch/arqui-sw)  -> Utilizado
+- [GodotServer-Docker](https://github.com/GodotNuts/GodotServer-Docker) -> No utilizado
+- [Ninjarobot](https://github.com/ninjarobot/mono-in-docker) -> Utilizado
+- [MonoGameBaseImage](https://github.com/mikescandy/MonoGameBaseImage/blob/main/Dockerfile) -> Utilizado
+- [Servicio SOA](https://github.com/nicobrch/arqui-sw)  -> Utilizado
