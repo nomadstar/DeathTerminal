@@ -1,4 +1,4 @@
-services:
+services: 
 
   # Bus Interface
   bus:
@@ -31,26 +31,14 @@ services:
     tty: true
     container_name: postgresdb
 
-# Python container para el backend
-# backend:
-#   build: 
-#     context: ./pythonifacetemplate
-#     dockerfile: backpython.dockerfile
-#   
-#   # pongale puerto!
-#   tty: true
-#   container_name: cool-backend
-
+  # Python User Service
   uservice:
     build: 
       context: ./Uservice
       dockerfile: backpython.dockerfile
-# pongale puerto!
     tty: true
     container_name: uservice
 
-
-# run in next order -> bus, frontend, backend, db    
-
-
-
+# Volúmenes gestionados
+volumes:
+  postgres_data: {}
