@@ -4,11 +4,22 @@
 
 ## ¿Cómo funciona?
 
+Una descripción de como levantar el servicio.
+### ¿Cómo iniciar el juego?
 
 ### Servicios Creados
 
 
- ## Fuentes y Agradecimientos
+### Contenido de las bases de datos
+
+
+### ¿Cómo añado mi propio contenido?
+
+
+### ¿Por qué SOA?
+
+
+## Fuentes y Agradecimientos
 
 [GodotServer-Docker](https://github.com/GodotNuts/GodotServer-Docker) -> No utilizado
 [Ninjarobot](https://github.com/ninjarobot/mono-in-docker) -> Utilizado
