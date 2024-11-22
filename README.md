@@ -2,22 +2,31 @@
  
 ## ¿Que es esto?
 
+Historia del lore del juego, ponganse creativos!
+
 ## ¿Cómo funciona?
 
 Una descripción de como levantar el servicio.
+
 ### ¿Cómo iniciar el juego?
+
+Pasos para iniciar el juego.
 
 ### Servicios Creados
 
+Listado rapido de los servicios. Nada engorroso. Insertar Imagen!
 
 ### Contenido de las bases de datos
 
+Insertar imagen!
 
 ### ¿Cómo añado mi propio contenido?
 
+Comentarios bonitos y motivacionales
 
 ### ¿Por qué SOA?
 
+No se vale porque el profe lo dijo. (Ponéle voluntad).
 
 ## Fuentes y Agradecimientos
 
