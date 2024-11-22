@@ -39,6 +39,52 @@ services:
     tty: true
     container_name: uservice
 
+  # Servicio de Eliminación y Penalización
+  penalization_service:
+    build:
+      context: ./PenalizationService
+      dockerfile: penalization.dockerfile
+    environment:
+      ADMIN_ROLE: "true" # Define el rol necesario para ejecutar estas acciones
+    tty: true
+    container_name: penalization_service
+    depends_on:
+      - db
+    volumes:
+      - ./PenalizationService/logs:/app/logs # Para guardar logs relacionados con penalizaciones
+
+  # Servicio de Progreso
+  progress_service:
+    build:
+      context: ./ProgressService
+      dockerfile: progress.dockerfile
+    environment:
+      DB_HOST: "db"
+      DB_PORT: 5432
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: db
+    tty: true
+    container_name: progress_service
+    depends_on:
+      - db
+    volumes:
+      - ./ProgressService/data:/app/data # Persistencia de progreso de usuario
+
+  # Servicio de Reinicio de Instancias
+  instance_reset_service:
+    build:
+      context: ./InstanceResetService
+      dockerfile: instancereset.dockerfile
+    environment:
+      RESET_CONDITIONS: "true" # Condiciones que deben cumplirse para reiniciar
+    tty: true
+    container_name: instance_reset_service
+    depends_on:
+      - db
+    volumes:
+      - ./InstanceResetService/logs:/app/logs # Logs de reinicios
+
 # Volúmenes gestionados
 volumes:
   postgres_data: {}
