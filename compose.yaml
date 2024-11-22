@@ -1,41 +1,35 @@
-
 services:
 
-# Bus Interface
+  # Bus Interface
   bus:
     image: jrgiadach/soabus:latest
-    # pongale puerto!
     tty: true
     container_name: giadachbus
 
-# MonoGame container para el frontend tuneado
+  # MonoGame container para el frontend tuneado
   frontend:
-    #build de monogame sacada de Monogame Image en readme.md
     build:
       context: ./frontiface
       dockerfile: monogame.dockerfile
     volumes:
-      - ./frontiface/gamefiles:/usr/src/app #Cambia este directorio donde trabajes con el monoGame
-     #pongale puerto!
+      - ./frontiface/gamefiles:/usr/src/app # Cambia este directorio donde trabajes con el MonoGame
     tty: true
     container_name: MonoGameFrontend
 
-# Postgres Database
+  # Postgres Database
   db:
     image: postgres:latest
     environment:
-      POSTGRES_USER: user                     # Usuario de la base de datos
-      POSTGRES_PASSWORD: password             # Contraseña del usuario
-      POSTGRES_DB: db                         # Nombre de la base de datos
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
     ports:
-      - "5432:5432"                           # Mapea el puerto 5432 al anfitrión
+      - "5432:5432"
     volumes:
-      - './sql/data:/var/lib/postgresql/data'  # Persistencia de datos en sql/data
       - './sql/init-scripts:/docker-entrypoint-initdb.d'  # Scripts de inicialización
+      - postgres_data:/var/lib/postgresql/data           # Persistencia de datos gestionada
     tty: true
     container_name: postgresdb
-#  volumes:  #si quisieramos que los datos percistan aunque se use docker stop o down
-#  postgres_data: {}
 
 # Python container para el backend
 # backend:
