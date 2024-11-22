@@ -42,7 +42,7 @@ class User:
 
     def checkuser(self,email,password):
         '''
-        Tecnical Database Logic should work this way
+        Tecnical Database Logic should work this way (Written by N0m4d 'yes, I know write in english dummies')
         1. Check if the email exists in the database
         2. If the email exists, check if the email asociated with usid in database is the same as calculateid(email,password) (is actually a hashed password)
         3. If the email and usid in the database return an id then the user is correct
