@@ -1,4 +1,18 @@
 # DeathTerminal
+
+# Instrucciones para levantar el sistema
+- docker-compose -f compose.yaml up giadachbus (para verificar: docker logs giadachbus)
+- docker-compose -f compose.yaml up postgresdb (para verificar docker logs postgresdb)
+- docker-compose -f compose.yaml up uservice (debe salir con código 0 si no hay errores)
+- docker-compose -f compose.yaml up penalization_service
+- docker-compose -f compose.yaml up instance_reset_service
+- docker-compose -f compose.yaml up progress_service
+- docker-compose -f compose.yaml up frontend
+
+o levantar todos los servicios juntos: docker-compose -f compose.yaml up
+
+- Revisar contenedores arriba: sudo docker ps
+- Bajar todos los contenedores: sudo docker-compose -f compose.yaml down 
  
 ## ¿Que es esto?
 
