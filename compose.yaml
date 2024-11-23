@@ -39,17 +39,18 @@ services:
     tty: true
     container_name: uservice
 
-  # Servicio de Eliminación y Penalización
+    # Servicio de Eliminación y Penalización
   penalization_service:
     build:
       context: ./PenalizationService
       dockerfile: penalization.dockerfile
     environment:
-      ADMIN_ROLE: "true" # Define el rol necesario para ejecutar estas acciones
+      BUS_HOST: "giadachbus"  # Host del bus de servicios
+      ADMIN_ROLE: "true"      # Define el rol necesario para ejecutar estas acciones
     tty: true
     container_name: penalization_service
     depends_on:
-      - db
+      - bus
     volumes:
       - ./PenalizationService/logs:/app/logs # Para guardar logs relacionados con penalizaciones
 
@@ -71,17 +72,18 @@ services:
     volumes:
       - ./ProgressService/data:/app/data # Persistencia de progreso de usuario
 
-  # Servicio de Reinicio de Instancias
+    # Servicio de Reinicio de Instancias
   instance_reset_service:
     build:
       context: ./InstanceResetService
       dockerfile: instancereset.dockerfile
     environment:
+      BUS_HOST: "giadachbus"  # Host del bus de servicios
       RESET_CONDITIONS: "true" # Condiciones que deben cumplirse para reiniciar
     tty: true
     container_name: instance_reset_service
     depends_on:
-      - db
+      - bus
     volumes:
       - ./InstanceResetService/logs:/app/logs # Logs de reinicios
 

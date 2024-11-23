@@ -4,6 +4,8 @@
 
 import logging
 import os
+import json
+import socket
 
 # Configuración básica de logging
 LOG_DIR = "./logs"
@@ -14,27 +16,37 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
-# Simulación de comunicación con el bus de servicios
+# Configuración del bus de servicios
+BUS_HOST = os.getenv("BUS_HOST", "localhost")  # Dirección del bus
+BUS_PORT = int(os.getenv("BUS_PORT", 5000))   # Puerto del bus por defecto
+
 def send_to_bus(event):
     """
-    Envía un evento al bus de servicios.
+    Envía un evento al bus de servicios utilizando sockets.
     :param event: Diccionario con la información del evento.
     """
-    logging.info(f"Evento enviado al bus: {event}")
-    print(f"Evento enviado al bus: {event}")
+    try:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.connect((BUS_HOST, BUS_PORT))
+            s.sendall(json.dumps(event).encode('utf-8'))
+            logging.info(f"Evento enviado al bus: {event}")
+            print(f"Evento enviado al bus: {event}")
+    except Exception as e:
+        logging.error(f"Error al enviar el evento al bus: {e}")
+        print(f"Error al enviar el evento al bus: {e}")
 
 def penalize_user(user_id, penalty_type):
     """
-    Aplica una penalización al usuario.
-    :param user_id: ID del usuario a penalizar
-    :param penalty_type: Tipo de penalización ("ban", "warning")
+    Aplica una penalización al usuario y envía un evento al bus.
+    :param user_id: ID del usuario a penalizar.
+    :param penalty_type: Tipo de penalización ("ban", "warning").
     """
     if penalty_type not in ["ban", "warning"]:
         raise ValueError("Tipo de penalización no válido. Use 'ban' o 'warning'.")
 
     logging.info(f"Usuario {user_id} penalizado con: {penalty_type}.")
     print(f"Usuario {user_id} penalizado con: {penalty_type}.")
-    
+
     # Crear el evento de penalización y enviarlo al bus
     event = {
         "action": "penalization",
@@ -45,7 +57,7 @@ def penalize_user(user_id, penalty_type):
 
 if __name__ == "__main__":
     # MVP: Función simple para probar la penalización
-    print("=== Servicio de Penalización (Mejorado) ===")
+    print("=== Servicio de Penalización (Conectado al Bus) ===")
     user_id = input("Introduce el ID del usuario: ")
     penalty_type = input("Introduce el tipo de penalización ('ban' o 'warning'): ").lower()
 
