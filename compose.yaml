@@ -60,17 +60,13 @@ services:
       context: ./ProgressService
       dockerfile: progress.dockerfile
     environment:
-      DB_HOST: "db"
-      DB_PORT: 5432
-      DB_USER: user
-      DB_PASSWORD: password
-      DB_NAME: db
+      BUS_HOST: "giadachbus"  # Host del bus de servicios
     tty: true
     container_name: progress_service
     depends_on:
-      - db
+      - bus
     volumes:
-      - ./ProgressService/data:/app/data # Persistencia de progreso de usuario
+      - ./ProgressService/logs:/app/logs # Logs de progreso
 
     # Servicio de Reinicio de Instancias
   instance_reset_service:
