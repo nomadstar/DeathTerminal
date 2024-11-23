@@ -39,6 +39,37 @@ services:
     tty: true
     container_name: uservice
 
+
+#servicio de prueba***+
+  cliente:
+    build:
+      context: ./Client
+      dockerfile: client.dockerfile
+    environment:
+      BUS_HOST: "giadachbus"
+    tty: true
+    container_name: client
+    depends_on:
+      - bus
+
+  #servicio de autenticación
+  gestion_usuarios:
+    build:
+      context: ./gestionusuario
+      dockerfile: login.dockerfile
+    environment:
+      BUS_HOST: "giadachbus"
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "db"
+    tty: true
+    container_name: gestion_usuarios
+    depends_on:
+      - bus
+      - db
+    volumes:
+      - ./gestion_usuarios/logs:/app/logs
+
     # Servicio de Eliminación y Penalización
   penalization_service:
     build:
