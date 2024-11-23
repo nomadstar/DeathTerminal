@@ -34,30 +34,29 @@ services:
   # Python User Service
   uservice:
     build: 
-      context: ./Uservice
-      dockerfile: backpython.dockerfile
+      context: ./NUservice
+      dockerfile: nuservice.dockerfile
     tty: true
     container_name: uservice
 
     # Servicio de Eliminación y Penalización
   penalization_service:
     build:
-      context: ./PenalizationService
+      context: ./penalizacionService
       dockerfile: penalization.dockerfile
     environment:
-      BUS_HOST: "giadachbus"  # Host del bus de servicios
-      ADMIN_ROLE: "true"      # Define el rol necesario para ejecutar estas acciones
+      BUS_HOST: "giadachbus"
     tty: true
     container_name: penalization_service
     depends_on:
       - bus
     volumes:
-      - ./PenalizationService/logs:/app/logs # Para guardar logs relacionados con penalizaciones
+      - ./penalizacionService/logs:/app/logs
 
   # Servicio de Progreso
   progress_service:
     build:
-      context: ./ProgressService
+      context: ./progress_Service
       dockerfile: progress.dockerfile
     environment:
       BUS_HOST: "giadachbus"  # Host del bus de servicios
@@ -71,7 +70,7 @@ services:
     # Servicio de Reinicio de Instancias
   instance_reset_service:
     build:
-      context: ./InstanceResetService
+      context: ./reinicio_instanciaService
       dockerfile: instancereset.dockerfile
     environment:
       BUS_HOST: "giadachbus"  # Host del bus de servicios
