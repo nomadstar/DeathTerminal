@@ -34,3 +34,4 @@ No se vale porque el profe lo dijo. (Ponéle voluntad).
 - [Ninjarobot](https://github.com/ninjarobot/mono-in-docker) -> Utilizado
 - [MonoGameBaseImage](https://github.com/mikescandy/MonoGameBaseImage/blob/main/Dockerfile) -> Utilizado
 - [Servicio SOA](https://github.com/nicobrch/arqui-sw)  -> Utilizado
+- [Contenedor C++ Docker](https://github.com/dockersamples/c-plus-plus-docker)
