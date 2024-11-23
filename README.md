@@ -14,6 +14,10 @@ o levantar todos los servicios juntos: docker-compose -f compose.yaml up
 - Revisar contenedores arriba: sudo docker ps
 - Bajar todos los contenedores: sudo docker-compose -f compose.yaml down 
  
+- sudo docker exec -it giadachbus bash -c "cat nohup.out" para ver logs del bus SOA
+- Probando servicios:
+1. docker exec -it SERVICIO bash
+2. python SERVICIO.py
 ## ¿Que es esto?
 
 Historia del lore del juego, ponganse creativos!
