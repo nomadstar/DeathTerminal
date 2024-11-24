@@ -70,6 +70,24 @@ services:
     volumes:
       - ./gestion_usuarios/logs:/app/logs
 
+    #servicio de Registro
+  registro_service:
+    build:
+      context: ./registro_usuarios
+      dockerfile: register.dockerfile
+    environment:
+      BUS_HOST: "giadachbus"
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "db"
+    tty: true
+    container_name: registro_service
+    depends_on:
+      - bus
+      - db
+    volumes:
+      - ./registro_usuario/logs:/app/logs
+
     # Servicio de Eliminación y Penalización
   penalization_service:
     build:
