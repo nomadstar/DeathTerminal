@@ -1,44 +1,50 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
-#include <cpprest/http_listener.h>
-#include <cpprest/json.h>
 
-using namespace web;
-using namespace web::http;
-using namespace web::http::experimental::listener;
+/*
+Contenido necesario de generar:
 
-class OkAPI {
-public:
-    OkAPI(const std::string& address) : m_listener(address) {
-        m_listener.support(methods::GET, std::bind(&OkAPI::handle_get, this, std::placeholders::_1));
-    }
+1. Inforomación de mapas
+2. Información de objetos dentro del mapa
+3. Información de NPC's dentro del mapa
+4. Información de objetos ocultos dentro del mapa
+5. Información de posibles interacciones con los NPC's y objetos
+6. Información sobre los escenarios de combate / interacciones
+7. Información sobre los items que se pueden obtener y los requisitos para obtenerlos
 
-    void start() {
-        m_listener.open().then([this]() {
-            std::cout << "Listening on: " << m_listener.uri().to_string() << std::endl;
-        }).wait();
-    }
+Requisitos basicos de la API:
 
-    void handle_get(http_request request) {
-        ucout << "Received GET request" << std::endl;
-        json::value response;
-        response[U("message")] = json::value::string(U("OK"));
-        request.reply(status_codes::OK, response);
-    }
+1. Comunicarse con el BUS de datos
+2. Recibir y enviar datos
+3. Procesar datos
+4. Enviar datos a la interfaz de usuario
+5. Recibir datos de la interfaz de usuario
+6. Procesar datos de la interfaz de usuario
+7. Enviar datos al BUS de datos
 
-private:
-    http_listener m_listener;
-};
+APIS utiles:
 
-int main() {
-    const std::string address = "http://0.0.0.0:8080"; // Listen on all interfaces
-    OkAPI api(address);
-    api.start();
+1. API de generacion de contenido con IA
+2. API de creación de mapas
+3. API de creación de objetos
+4. API de creación de NPC's
+5. API de creación de objetos ocultos
+6. API de creación de interacciones
+7. API de creación de escenarios de combate
+8. API de creación de items
 
-    while (true) {
-        std::this_thread::sleep_for(std::chrono::seconds(1)); // Sleep to prevent busy loop
-    }
 
+
+*/
+
+
+
+
+
+
+int main(int argc, char const *argv[])
+{
+    printf("Hello, World!\n");
     return 0;
 }

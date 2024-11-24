@@ -2,21 +2,20 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: clang++.exe compilar archivo activo",
-            "command": "C:\\Program Files\\LLVM\\bin\\clang++.exe",
+            "label": "C/C++: cl.exe compilar archivo activo",
+            "command": "cl.exe",
             "args": [
-                "-fcolor-diagnostics",
-                "-fansi-escape-codes",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "/Zi",
+                "/EHsc",
+                "/nologo",
+                "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "${file}"
             ],
             "options": {
                 "cwd": "${fileDirname}"
             },
             "problemMatcher": [
-                "$gcc"
+                "$msCompile"
             ],
             "group": "build",
             "detail": "Tarea generada por el depurador."
