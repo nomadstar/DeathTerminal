@@ -3,6 +3,8 @@ import logging
 import json
 import psycopg2
 import socket
+import time
+
 from dataclasses import dataclass
 
 # Configuración de logging
@@ -26,41 +28,132 @@ DB_CONFIG = {
     "host": "db",
     "port": 5432
 }
+def register_service(sock, prefix):
+    try:
+        prefix = prefix[:5] #asegurar que tenga 5 caracteres
+        registration_message = f"{len('sinit' + prefix):05}sinit{prefix}"
+        print(f"Mensaje de registro enviado: {registration_message}")
+        sock.sendall(registration_message.encode())
+        logging.info(f"Registro del servicio enviado al bus: {registration_message}")
 
-@dataclass
-class Request:
-    msg: str
-    addr: str = ""
-    content: dict = None
+        # Confirmar registro con el bus
+        response_length = int(sock.recv(5).decode())
+        response = sock.recv(response_length).decode()
+        logging.info(f"Respuesta del bus al: {response}")
+        if "OK" not in response:
+            raise Exception(f"Registro rechazado por el bus: {response}")
+        logging.info(f"Servicio registrado correctamente con prefijo: {prefix}")
+    except Exception as e:
+        logging.error(f"Error al registrar el servicio en el bus: {e}")
+        raise
 
-    def __post_init__(self):
-        self.addr = self.msg[:5]  # Extrae el identificador del servicio
-        self.content = json.loads(self.msg[5:])  # Decodifica el JSON restante
+#enviar mensajes al bus
+def send_to_bus_response(sock, action, content):
+    """
+    Envía una respuesta al bus desde el servidor.
+    :param sock: Socket conectado al bus.
+    :param action: Acción/prefijo del servicio.
+    :param content: Diccionario con el contenido de la respuesta.
+    """
+    try:
+        # Serializar el contenido a JSON
+        message_content = json.dumps(content)
+        prefix = action[:5].ljust(5)  # Asegura que el prefijo sea de 5 caracteres
+        full_message = f"{len(prefix + message_content):05}{prefix}{message_content}"
+
+        # Enviar al bus
+        sock.sendall(full_message.encode())
+        logging.info(f"Respuesta enviada al bus: {full_message}")
+    except Exception as e:
+        logging.error(f"Error al enviar respuesta al bus: {e}")
 
 
-@dataclass
-class Response: #respuestas del servicio
-    addr: str
-    content: dict
-    msg: str = ""
 
-    def __post_init__(self):
-        content_string = json.dumps(self.content)  
-        length = len(self.addr + content_string)  
-        self.msg = f'{length:05}{self.addr}{content_string}'  
+#recibir mensaje del bus
+def receive_from_bus(sock):
+    """
+    Recibe un mensaje del bus de servicios utilizando un socket.
+    :param sock: Socket conectado al bus.
+    :return: Diccionario con la acción y el contenido del mensaje.
+    """
+    try:
+        # Leer los primeros 5 caracteres como longitud del mensaje
+        data_length = int(sock.recv(5).decode())
+        data = sock.recv(data_length).decode()
+
+        action = data[:5].strip()  # Prefijo de 5 caracteres, login
+        content = json.loads(data[5:])  # JSON del contenido
+
+        logging.info(f"Mensaje recibido del bus: {data}")
+        print(f"Mensaje recibido del bus: {data}")
+
+        return {"action": action, "content": content}
+    except Exception as e:
+        logging.error(f"Error al recibir mensaje del bus: {e}")
+        print(f"Error al recibir mensaje del bus: {e}")
+        return None
+
+#escucha activa del bus y su proceso
+def listen_to_bus():
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        try:
+            # Conectar al bus
+            sock.connect((BUS_HOST, BUS_PORT))
+            logging.info("Conectado al bus de servicios")
+
+            # Registrar el servicio en el bus con el prefijo "login"
+            register_service(sock, "login")
+
+            # Escuchar mensajes del bus
+            while True:
+                message = receive_from_bus(sock)
+                if message:
+                    action = message["action"]
+                    content = message["content"]
+                    logging.info(f"Mensaje recibido del bus: {action} - {content}")
+
+                    # Procesar según la acción
+                    if action == "login":
+                        handle_login(sock, content)
+                    else:
+                        logging.warning(f"Acción no soportada: {action}")
+        except Exception as e:
+            logging.error(f"Error al escuchar el bus: {e}")
+            print(f"Error al escuchar el bus: {e}")
+            time.sleep(5)
+
+
+ 
+def handle_login(sock, content):
+    try:
+        nombre = content.get("nombre")
+        user_password = content.get("user_password")
+
+        # Verificar credenciales en la base de datos
+        if User.check_user(nombre, user_password):
+            logging.info(f"Inicio de sesión exitoso para: {nombre}")
+            send_to_bus_response(sock, "login", {"message": "Inicio exitoso"})
+        else:
+            logging.warning(f"Inicio de sesión fallido para: {nombre}")
+            send_to_bus_response(sock, "login", {"message": "Credenciales incorrectas"})
+    except Exception as e:
+        logging.error(f"Error al manejar inicio de sesión: {e}")
+        send_to_bus_response(sock, "login", {"message": "Error en el servidor"})
+
 
 
 class User:
     #interaccion con la bd
-    def check_user(self, nombre, contraseña):
+    @staticmethod
+    def check_user(nombre, user_password):
         try:
             conn = psycopg2.connect(**DB_CONFIG)
             cursor = conn.cursor()
 
             # Consulta al usuario en la base de datos
             cursor.execute(
-                "SELECT id FROM usuarios WHERE nombre = %s AND contraseña = %s",
-                (nombre, contraseña)
+                "SELECT id FROM usuarios WHERE nombre = %s AND user_password = %s",
+                (nombre, user_password)
             )
             user = cursor.fetchone()
             cursor.close()
@@ -73,87 +166,6 @@ class User:
             return False
 
 
-class UserService:
-    def __init__(self):
-        self.sock = None
-
-    def connect_bus(self):
-        """
-        Conecta el servicio al bus y realiza la inicialización.
-        """
-        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.sock.connect((BUS_HOST, BUS_PORT))
-        init_message = "sinitlogin"
-        message = f"{len(init_message):05}{init_message}"
-        self.sock.sendall(message.encode())
-        logging.info(f"Mensaje enviado al bus: {message}")
-
-        # Leer la respuesta del bus
-        response_length = int(self.sock.recv(5).decode())
-        response = self.sock.recv(response_length).decode()
-        logging.info(f"Respuesta del bus: {response}")
-        if "OK" not in response:
-            logging.error("Error al conectar con el bus")
-            raise Exception("Error al conectar con el bus")
-        logging.info("Conexión con el bus establecida correctamente")
-
-    def handle_request(self, req: Request):
-        """
-        Procesa una solicitud recibida desde el bus.
-        """
-        action = req.content.get("action")  # Obtener la acción
-        if action == "login":
-            return self.handle_login(req.content)
-        else:
-            return Response(addr="login", content={"status": "error", "message": "no soportado"})
-
-    def handle_login(self, data):
-        """
-        Procesa solicitudes de inicio de sesión.
-        """
-        try:
-            nombre = data.get("nombre")
-            contraseña = data.get("contraseña")
-
-            # Validar los campos
-            if not nombre or not contraseña:
-                logging.warning(f"Solicitud incompleta: {data}")
-                return Response(addr="login", content={"status": "error", "message": "Campos incompletos"})
-
-            user = User()
-            if user.check_user(nombre, contraseña):
-                logging.info(f"Inicio de sesión exitoso para: {nombre}")
-                return Response(addr="login", content={"status": "success", "message": "Inicio exitoso"})
-            else:
-                logging.warning(f"Inicio de sesión fallido para: {nombre}")
-                return Response(addr="login", content={"status": "error", "message": "Credenciales erroneas"})
-        except Exception as e:
-            logging.error(f"Error al procesar solicitud de login: {e}")
-            return Response(addr="login", content={"status": "error", "message": "Error interno del servidor"})
-
-    def start(self):
-        """
-        Inicia el servicio y escucha solicitudes desde el bus.
-        """
-        self.connect_bus()
-
-        while True:
-            try:
-                # Recibir mensaje del bus
-                data_length = int(self.sock.recv(5).decode())
-                data = self.sock.recv(data_length).decode()
-                request = Request(msg=data)
-
-                # Procesar solicitud
-                response = self.handle_request(request)
-
-                # Enviar respuesta al bus
-                self.sock.sendall(response.msg.encode())
-                logging.info(f"Respuesta enviada al bus: {response.msg}")
-            except Exception as e:
-                logging.error(f"Error en el procesamiento de solicitudes: {e}")
-
-
 if __name__ == "__main__":
-    service = UserService()
-    service.start()
+    logging.info("Iniciando servicio de gestion de usuarios...")
+    listen_to_bus()

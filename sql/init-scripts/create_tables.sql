@@ -2,8 +2,8 @@ CREATE TABLE usuarios (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(25),
     email VARCHAR(25) UNIQUE,
-    Tipo_usuario BOOLEAN,
-    contraseña VARCHAR(25),
+    Tipo_usuario VARCHAR(25),
+    user_password VARCHAR(25),
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
