@@ -6,10 +6,6 @@
 #include <algorithm>
 #include <iterator>
 
-struct position{
-        int x;
-        int y;
-    };
 struct effect{
     std::string name;
     std::string description;
@@ -43,7 +39,6 @@ private:
     int level;
     bool incombat = false;
     // -- Propiedades de movimiento y carga
-    position pos;// 1. X 2. Y
     int maxcarryweight; // Peso maximo que puede cargar
     std::vector<int[2]> items; // {Numeros negativos items de combate, Numeros positivos items de interacción, peso}
 
@@ -62,8 +57,6 @@ public:
         stamina[0] = data["stamina"][0];
         stamina[1] = data["max_stamina"][1];
         maxcarryweight = data["maxcarryweight"];   
-        pos.x = data["position"][0];
-        pos.y = data["position"][1];
     }
     // -- Metodos
     std::string getname(){
@@ -179,34 +172,9 @@ public:
         } 
     }
     
-    // -- Metodos de propiedades de movimiento y carga
-    position getpos(){
-        return pos;
-    }
-    void setpos(int x, int y){
-        pos.x = x;
-        pos.y = y;
-    }
+       
     // usa puntos cardinales para moverse (N = Norte, S = Sur, E = Este, W = Oeste)
-    void move(char direction){
-        switch (direction)
-        {
-        case 'N':
-            pos.y++;
-            break;
-        case 'S':
-            pos.y--;
-            break;
-        case 'E':
-            pos.x++;
-            break;
-        case 'W':
-            pos.x--;
-            break;
-        default:
-            break;
-        }
-    }
+  
     int getmaxcarryweight(){
         return maxcarryweight;
     }
