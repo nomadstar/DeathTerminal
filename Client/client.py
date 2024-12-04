@@ -8,7 +8,6 @@ BUS_PORT = int(os.getenv("BUS_PORT", 5000))    # Puerto del bus por defecto
 
 def send_request(action, nombre, user_password, email=None):
     request_data = {
-        "action": action,
         "nombre": nombre,
         "user_password": user_password
     }
@@ -28,7 +27,7 @@ def send_request(action, nombre, user_password, email=None):
     # Crear el mensaje a enviar
     message_content = json.dumps(request_data)
     full_message = f"{len(prefix + message_content):05}{prefix}{message_content}"
-    print(f"Mensaje a enviar: {full_message}")
+    print(f"Mensaje enviado: {full_message}")
 
     try:
         # Conectar al bus y enviar el mensaje
@@ -38,40 +37,31 @@ def send_request(action, nombre, user_password, email=None):
 
             # Recibir la respuesta del bus
             response = receive_response(sock)
-            if response:
-                handle_response(response)
     except Exception as e:
         print(f"Error al enviar solicitud al bus: {e}")
 
 def receive_response(sock):
     try:
-        response_length = int(sock.recv(5).decode())
+        # Leer los primeros 5 caracteres como longitud
+        response_length =int(sock.recv(5).decode())
+
+        # Leer los datos del mensaje
         response = sock.recv(response_length).decode()
-        print(f"Respuesta completa del bus: {response}")
+        # Extraer prefijo, estado(ok, nk) y contenido
+        action = response[:5]
+        status = response[5:7]
+        content_json = response[7:]
 
-        # Extraer prefijo y contenido
-        prefix = response[5:7].strip()  # Prefijo como "OK" o "NK"
-        content = json.loads(response[7:])  # El contenido como JSON
+        try:
+            content = json.loads(content_json)
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Error al decodificar JSON: {e}")
 
-        return {"prefix": prefix, "content": content}
+        print(f"Mensaje recibido: {response_length:05}{action} {status} {content}")
+        return {"action": action, "status": status, "content": content}
     except Exception as e:
-        print(f"Error al recibir respuesta del bus/formato invalido: {e}")
+        print(f"respuesta con formato inválido: {e}")
         return None
-
-def handle_response(response):
-    """
-    Procesa la respuesta del bus.
-    :param response: Diccionario con el prefijo y el contenido de la respuesta.
-    """
-    prefix = response["prefix"]
-    content = response["content"]
-
-    if prefix == "OK":
-        print(f"Éxito: {content.get('message', 'Operación completada')}")
-    elif prefix == "NK":
-        print(f"Error: {content.get('message', 'Operación fallida')}")
-    else:
-        print(f"Respuesta inesperada del bus: {response}")
 
 def registro():
     """
