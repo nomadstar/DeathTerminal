@@ -41,7 +41,7 @@ services:
 
 
 #servicio de prueba***+
-  cliente:
+  client:
     build:
       context: ./Client
       dockerfile: client.dockerfile
@@ -59,16 +59,29 @@ services:
       dockerfile: login.dockerfile
     environment:
       BUS_HOST: "giadachbus"
-      POSTGRES_USER: "user"
-      POSTGRES_PASSWORD: "password"
-      POSTGRES_DB: "db"
     tty: true
     container_name: gestion_usuarios
     depends_on:
       - bus
-      - db
+      - db_service
     volumes:
       - ./gestion_usuarios/logs:/app/logs
+      - ./comunicacion_bus.py:/app/bus_conf.py
+
+    #servicio de permisos
+  permisos_service:
+    build:
+      context: ./permisos_service
+      dockerfile: permisos.dockerfile
+    environment:
+      BUS_HOST: "giadachbus"
+    tty: true
+    container_name: permisos_service
+    depends_on:
+      - bus
+      - gestion_usuarios
+    volumes:
+      - ./permisos_service/logs:/app/logs
 
     #servicio de Registro
   registro_service:
@@ -77,16 +90,33 @@ services:
       dockerfile: register.dockerfile
     environment:
       BUS_HOST: "giadachbus"
-      POSTGRES_USER: "user"
-      POSTGRES_PASSWORD: "password"
-      POSTGRES_DB: "db"
     tty: true
     container_name: registro_service
     depends_on:
       - bus
-      - db
+      - db_service
     volumes:
       - ./registro_usuario/logs:/app/logs
+      - ./comunicacion_bus.py:/app/bus_conf.py
+
+    #servicio de consulta a la base de datos
+  db_service:
+    build:
+      context: ./db_service
+      dockerfile: db.dockerfile
+    environment:
+      BUS_HOST: "giadachbus"
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "db"
+    tty: true
+    container_name: db_service
+    depends_on:
+      - bus
+      - db
+    volumes:
+      - ./db_service/logs:/app/logs
+      - ./comunicacion_bus.py:/app/bus_conf.py
 
     # Servicio de Eliminación y Penalización
   penalization_service:
