@@ -90,13 +90,10 @@ def consultas(sock, content):
     # Ejecutar la consulta y obtener resultados
     json_result = execute_query(query)
 
-    logging.info(f"Resultado de la consulta SQL: {json_result}")
-
     try:
         result_content = json.loads(json_result)
 
         if isinstance(result_content, list):
-            logging.info(f"Consulta exitosa: {result_content}")
             send_to_bus_response(sock, "condb", {"data": result_content})
         elif isinstance(result_content, dict) and "error" in result_content:
             logging.error(f"Error en la consulta: {result_content}")
@@ -112,35 +109,18 @@ def consultas(sock, content):
 
 if __name__ == "__main__":
     logging.info("Iniciando servicio de consultas db...")
-    print("Iniciando servicio de consultasdb...")
+    print("Iniciando servicio de gestión de consultas db...")
     sock=register_service("condb")
     try:
         while True:
-            try:
-                message = receive_from_bus(sock)
-                if not message:
-                    continue
-
-                action = message.get("action")
-                if not action:
-                    logging.error(f"Mensaje inválido: {message}")
-                    continue
-
-                # Ver si es solicitud o respuesta
-                if "status" in message:  # Respuesta
-                    if action != "condb":  # Si no es para este servicio
-                        logging.info("Respuesta no destinada a este servidor")
-                        print("Respuesta no destinada a este servidor")
-                    else:
-                        logging.info("Respuesta a cliente")
-                elif action == "condb":  # Solicitud
-                    consultas(sock, message)
-                else:
-                    logging.error(f"Mensaje a otro servidor: {message}")
-                    print(f"Mensaje a otro servidor: {message}")
-            except Exception as inner_e:
-                logging.error(f"Error interno durante el ciclo: {inner_e}")
-                print(f"Error interno durante el ciclo: {inner_e}")
+            message = receive_from_bus(sock)
+            action = message.get("action")
+            if not message:
+                continue
+            #ver si es solicitud
+            if action == "condb": #solicitud
+                consultas(sock,message)
+            else:
+                logging.error(f"mensaje a otro servidor")
     except Exception as e:
-        logging.error(f"Error principal: {e}")
-
+        logging.error(f"Error: {e}")

@@ -15,21 +15,28 @@ logging.basicConfig(
 pending_requests = {}
 def handle_response(sock, content):
     try:
-        status = content.get("status")
-        cont = content.get("content")
-        action = content.get("action")
-        data = cont.get("data")
-
+        cont = content.get("content", {})
+        data = cont.get("data", []) #resultado de la consulta
+        for d in data:
+            id= d.get("id", None)
+    
         #datos de la lista
         lista_rec = pending_requests.pop(sock)
         nombre = lista_rec.get("nombre")
         user_password = lista_rec.get("user_password")
 
-
-        if data and len(data) > 0: #el usuario existe
-            logging.info(f"el usuario ya existe")
-            send_to_bus_response(sock, "login", {"message": "Usuario ya existe"})
-            print("Usuario ya existe")
+        if data and len(data) > 0: #credendiales correctas
+            logging.info(f"credenciales correctas")
+            #ver si es administrador
+            send_to_bus_response(sock, "login", {"message": "credenciales correctas"})
+            send_to_bus_response(sock, "permi", {"id":id})
+            respuesta= receive_from_bus(sock)
+            if respuesta.get("content", {}).get("data", {}).get("tipo") != "admin":
+                #send_to_bus_response(sock, "login", {"message": "permisos de usuario"})
+            else:
+                logging.info(f"el usuario no es administrador")
+                #send_to_bus_response(sock, "login", {"message": "permisos de administrador"})
+            
         else:
             logging.info(f"el usuario no existe o credenciales invalidas")
             send_to_bus_response(sock, "login", {"message": "Usuario no existe"})
@@ -42,7 +49,7 @@ def handle_response(sock, content):
 def handle_login(sock, content):
     try:
         """
-        formato del mensaje: {"sql": "SELECT * FROM tabla", "r":"servicio de quien lo envia"}
+        formato del mensaje: {"sql": "SELECT * FROM tabla" ..}
 
         usado para saber el servicio que envia la consulta y poder responderle
         """
@@ -53,7 +60,7 @@ def handle_login(sock, content):
 
         #verificar credenciales en la base de datos
         sql = f"SELECT * FROM usuarios WHERE nombre = '{nombre}' AND user_password = '{user_password}'"
-        send_to_bus_response(sock, "condb", {"sql": sql, "r": "login"})
+        send_to_bus_response(sock, "condb", {"sql": sql})
     except Exception as e:
         logging.error(f"Error al manejar solicitud de login: {e}")
         send_to_bus_response(sock, "login", {"message": "Error en el servidor"})
@@ -73,7 +80,7 @@ if __name__ == "__main__":
                 if action != "login":
                     handle_response(sock,message)
                 else:
-                    logging.error(f"Respuesta a cliente")
+                    logging.info(f"Respuesta a cliente")
 
             elif action == "login": #solicitud
                 handle_login(sock,message)

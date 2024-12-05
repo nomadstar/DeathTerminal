@@ -82,6 +82,7 @@ services:
       - gestion_usuarios
     volumes:
       - ./permisos_service/logs:/app/logs
+      - ./comunicacion_bus.py:/app/bus_conf.py
 
     #servicio de Registro
   registro_service:
