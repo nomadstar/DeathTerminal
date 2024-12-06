@@ -18,26 +18,36 @@ def handle_response(sock, content):
         status = content.get("status")
         action = content.get("action")
         contenido = content.get("content", {}) #sentencia sql
-        data = contenido.get("data", []) #resultado de la consulta                
+        data = contenido.get("data", None) #resultado de la consulta              
+        error = contenido.get("error", None) #error en la consulta  
 
-        #recuperar datos del diccionario
-        lista_rec= pending_requests.pop(sock)
-        nombre = lista_rec.get("nombre")
-        email = lista_rec.get("email")
-        user_password = lista_rec.get("user_password")
-
-        #verificar si el usuario existe o no
-        if data and len(data) >0: #el usuario existe
-            logging.info(f"el usuario ya existe")
-            send_to_bus_response(sock, "regis", {"message": "Usuario ya existe"})
-        elif isinstance(data,list) and len(data)==0:#registrar el usuario
-            sql= f"INSERT INTO usuarios (nombre, email, user_password, Tipo_usuario) VALUES ('{nombre}', '{email}', '{user_password}', 'usuario')"
-            send_to_bus_response(sock, "condb", {"sql": sql})
-        elif action == "condb" and status == "OK":
-            logging.info(f"registro exitoso")
-            send_to_bus_response(sock, "regis", {"message": "Usuario registrado exitosamente"})
+        if error:
+            logging.error(f"Error en la consulta SQL: {error}")
+            send_to_bus_response(sock, "regis", {"message": "Error en el servidor"})
+            return
+            
+        # Verificar si el usuario existe o no
+        if isinstance(data, list): #[]
+            if len(data) > 0:  # El usuario ya existe
+                logging.info(f"El usuario ya existe: {data}")
+                send_to_bus_response(sock, "regis", {"message": "El usuario ya existe"})
+            elif len(data) == 0:  # Registrar al usuario
+                #recuperar datos del diccionario
+                lista_rec= pending_requests.pop(sock)
+                nombre = lista_rec.get("nombre")
+                email = lista_rec.get("email")
+                user_password = lista_rec.get("user_password")
+                sql = f"INSERT INTO usuarios (nombre, email, user_password, Tipo_usuario) VALUES ('{nombre}', '{email}', '{user_password}', 'usuario')"
+                send_to_bus_response(sock, "condb", {"sql": sql})
+        elif isinstance(data, dict):
+            if "consulta exitosa" in data:  # Registro exitoso
+                logging.info(f"Registro exitoso: {data}")
+                send_to_bus_response(sock, "regis", {"message": "Usuario registrado exitosamente"})
+            else:
+                logging.warning(f"Formato inesperado en el diccionario: {data}")
+                send_to_bus_response(sock, "regis", {"message": "Formato inesperado en el resultado"})
         else:
-            logging.info(f"Error al registrar usuario")
+            logging.error(f"Formato desconocido en data: {data}")
             send_to_bus_response(sock, "regis", {"message": "Error al registrar usuario"})
     except Exception as e:
         logging.error(f"Error al manejar respuesta: {e}")

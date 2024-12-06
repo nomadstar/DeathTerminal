@@ -39,20 +39,19 @@ def connect():
     Session = sessionmaker(bind=engine)
     return Session()
 
-def execute_query(sql):
+def execute_query(sql,params=None):
     """
     Ejecuta una consulta SQL en la base de datos.
     :param sql: Consulta SQL a ejecutar.
     :param params: Parámetros para la consulta SQL.
     :return: Resultado de la consulta en formato JSON.
     """
-    params = None
     try:
         session = connect()
         logging.info(f"consulta SQL: {sql}")
 
         # Ejecutar la consulta
-        if params is not None:
+        if params:
             result = session.execute(text(sql), params)
         else:
             result = session.execute(text(sql))
@@ -74,7 +73,7 @@ def execute_query(sql):
             # otras consultas
             affected_rows = result.rowcount
             session.close()
-            json_result = json.dumps({"acción realizada"})
+            json_result = json.dumps({"consulta exitosa": affected_rows})
             return json_result
     except Exception as e:
         logging.error(f"Error al ejecutar consulta SQL: {e}")
@@ -86,9 +85,11 @@ def execute_query(sql):
 def consultas(sock, content):
     contenido = content.get("content", {})
     query = contenido.get("sql")
+    params = contenido.get("params")
 
     # Ejecutar la consulta y obtener resultados
-    json_result = execute_query(query)
+    json_result = execute_query(query,params)
+    logging.info(f"Resultado de la consulta: {json_result}")
 
     try:
         result_content = json.loads(json_result)
@@ -97,8 +98,10 @@ def consultas(sock, content):
             send_to_bus_response(sock, "condb", {"data": result_content})
         elif isinstance(result_content, dict) and "error" in result_content:
             logging.error(f"Error en la consulta: {result_content}")
-            ##send_to_bus_response(sock, content["r"], result_content)
-            send_to_bus_response(sock, "condb", {result_content})
+            send_to_bus_response(sock, "condb", {"data":result_content})
+        elif isinstance(result_content, dict) and "error" not in result_content:
+            logging.info(f"Consulta exitosa: {result_content}")
+            send_to_bus_response(sock, "condb", {"data": result_content})
         else:
             logging.warning(f"Formato de resultado desconocido: {result_content}")
             send_to_bus_response(sock, "condb", {"error": "Formato desconocido en el resultado SQL"})

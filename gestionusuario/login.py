@@ -12,18 +12,13 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
-pending_requests = {}
+
 def handle_response(sock, content):
     try:
         cont = content.get("content", {})
         data = cont.get("data", []) #resultado de la consulta
         for d in data:
             id= d.get("id", None)
-    
-        #datos de la lista
-        lista_rec = pending_requests.pop(sock)
-        nombre = lista_rec.get("nombre")
-        user_password = lista_rec.get("user_password")
 
         if data and len(data) > 0: #credendiales correctas
             logging.info(f"credenciales correctas")
@@ -56,7 +51,6 @@ def handle_login(sock, content):
         contenido=content.get("content", {})
         nombre = contenido.get("nombre")
         user_password = contenido.get("user_password")
-        pending_requests[sock] = {"nombre": nombre, "user_password": user_password}
 
         #verificar credenciales en la base de datos
         sql = f"SELECT * FROM usuarios WHERE nombre = '{nombre}' AND user_password = '{user_password}'"
