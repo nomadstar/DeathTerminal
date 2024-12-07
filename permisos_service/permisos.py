@@ -16,15 +16,15 @@ def handle_response(sock, content):
     try:
         cont = content.get("content", {})
         data = cont.get("data", []) #resultado de la consulta
-        tipo= data[0].get("Tipo_usuario", None) #tipo de usuario
+        tipo= data[0].get("tipo_usuario", None) #tipo de usuario
         logging.info(f"El tipo de usuario es: {tipo}")
 
         if tipo == "admin": #es administrador
             logging.info(f"el usuario es administrador")
-            send_to_bus_response(sock, "permi", {"message": "permisos de administrador"})
+            send_to_bus_response(sock, "permi", {"message": True})
         else:
             logging.info(f"el usuario no es administrador")
-            send_to_bus_response(sock, "permi", {"message": "permisos usuario"})
+            send_to_bus_response(sock, "permi", {"message": False})
 
 
     except Exception as e:
@@ -67,3 +67,4 @@ if __name__ == "__main__":
                 logging.error(f"mensaje a otro servidor")
     except Exception as e:
         logging.error(f"Error: {e}")
+
