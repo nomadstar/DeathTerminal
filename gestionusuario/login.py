@@ -16,22 +16,15 @@ logging.basicConfig(
 def handle_response(sock, content):
     try:
         cont = content.get("content", {})
-        data = cont.get("data", []) #resultado de la consulta
-        for d in data:
-            id= d.get("id", None)
+        data = cont.get("data", [])  # Resultado de la consulta
 
-        if data and len(data) > 0: #credendiales correctas
+        for d in data:
+            id = d.get("id", None)
+
+        if data and len(data) > 0:  # Credenciales correctas
             logging.info(f"credenciales correctas")
-            #ver si es administrador
-            send_to_bus_response(sock, "login", {"message": "credenciales correctas"})
-            send_to_bus_response(sock, "permi", {"id":id})
-            respuesta= receive_from_bus(sock)
-            if respuesta.get("content", {}).get("data", {}).get("tipo") != "admin":
-                #send_to_bus_response(sock, "login", {"message": "permisos de usuario"})
-            else:
-                logging.info(f"el usuario no es administrador")
-                #send_to_bus_response(sock, "login", {"message": "permisos de administrador"})
-            
+            # Ver si es administrador
+            send_to_bus_response(sock, "login", {"message": "credenciales correctas", "id": id})     
         else:
             logging.info(f"el usuario no existe o credenciales invalidas")
             send_to_bus_response(sock, "login", {"message": "Usuario no existe"})
@@ -39,7 +32,7 @@ def handle_response(sock, content):
     except Exception as e:
         logging.error(f"Error al manejar respuesta: {e}")
         send_to_bus_response(sock, "login", {"message": "Error en el servidor"})
-        
+
 
 def handle_login(sock, content):
     try:
