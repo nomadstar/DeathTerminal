@@ -18,3 +18,11 @@ CREATE TABLE progresion (
     nivel_id INT REFERENCES niveles(id),
     fecha_completado TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE publicaciones (
+    id SERIAL PRIMARY KEY, 
+    tema VARCHAR(10) NOT NULL,                         
+    mensaje TEXT NOT NULL,                          
+    usuario_id INT REFERENCES usuarios(id) ON DELETE CASCADE, -- Si se elimina un usuario, se eliminan sus publicaciones
+    fecha_publicacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+);

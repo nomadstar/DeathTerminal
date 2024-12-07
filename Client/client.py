@@ -8,9 +8,34 @@ def jugar(sock):
 def informacion_usuario(sock, id):
     send_to_bus_response(sock, "infou", {"id": id})
     res= receive_from_bus(sock)
-    print(f"Respuesta recibida: {res}")
+    contenido = res.get("content", {})
+    data = contenido.get("data", None)
+    print(f"Respuesta recibida: {data}")
 
-
+def sistema_foro(sock, id):
+    #ver todas las publicaciones, publicar una publicación
+    while True:
+        print("=== Sistema de foro ===")
+        print("1. Ver mis publicaciones")
+        print("2. Realizar una publicación")
+        print("3. Ver todas las publicaciones")
+        print("4. Salir")
+        opcion = input("Seleccione una opción: ").strip()
+        if opcion == "1":
+            send_to_bus_response(sock, "foros", {"opcion":1, "id": id})
+        elif opcion == "2":
+            tema = input("Ingrese el tema: (máx 10 carácteres) ").strip()[:10]
+            mensaje = input("Ingrese el mensaje de la publicación: ").strip()
+            send_to_bus_response(sock, "foros", {"opcion":2, "id": id, "tema": tema, "mensaje": mensaje})
+        elif opcion == "3":
+            send_to_bus_response(sock, "foros", {"opcion":3})
+        else:
+            print("Saliendo del sistema de foro...")
+            break
+        respuesta = receive_from_bus(sock)
+        contenido = respuesta.get("content", {})
+        mensaje = contenido.get("message", None)
+        print(f"Respuesta recibida: {mensaje}")
 
 def registro(sock):
     print("=== Registro de usuario ===")
@@ -43,7 +68,8 @@ def login(sock):
         while True:
             print("1. Continuar jugando (falta)")
             print("2. Ver mi información")
-            print("3. Cerrar sesión")
+            print("3. Ver el sistema de foro")
+            print("4. Cerrar sesión")
             opcion = input("Seleccione una opción: ").strip()
             if opcion == "1":
                 print("Continuar jugando")
@@ -53,6 +79,9 @@ def login(sock):
                 informacion_usuario(sock, id)
                 print("Cerrando sesión...")
                 break
+            elif opcion == "3":
+                print("Ver el sistema de foro")
+                sistema_foro(sock, id)#id para publicar una publicación
             else:
                 print("Opción inválida")
     else:

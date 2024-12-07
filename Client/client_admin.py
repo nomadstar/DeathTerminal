@@ -31,6 +31,7 @@ def informacion_admin(sock):
             print("Opción inválida")
         respuesta = receive_from_bus(sock)
         print(f"Respuesta recibida: {respuesta}")
+        print("enter para continuar")
 
 def admin(sock):
     print("=== Iniciar sesión ===")

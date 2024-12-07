@@ -76,6 +76,21 @@ services:
       - ./gestion_usuarios/logs:/app/logs
       - ./comunicacion_bus.py:/app/bus_conf.py
 
+    #sistema de foro
+  foro_service:
+    build:
+      context: ./foro_service
+      dockerfile: foro.dockerfile
+    environment:
+      BUS_HOST: "giadachbus"
+    tty: true
+    container_name: foro_service
+    depends_on:
+      - bus
+    volumes:
+      - ./foro_service/logs:/app/logs
+      - ./comunicacion_bus.py:/app/bus_conf.py
+
     #servicio de permisos
   permisos_service:
     build:
