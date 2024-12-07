@@ -8,4 +8,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["python", "guardado.py"]
+# Cambiar CMD para evitar que se inicie automáticamente
+CMD ["tail", "-f", "/dev/null"]
