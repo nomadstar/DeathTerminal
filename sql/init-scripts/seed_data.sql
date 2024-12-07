@@ -6,3 +6,5 @@ INSERT INTO niveles (nombre_nivel, dificultad) VALUES
 ('Nivel 1', 1),
 ('Nivel 2', 2);
 
+INSERT INTO usuarios (nombre, email, user_password, Tipo_usuario) VALUES
+('hola', 'hola@example.com', '1234', 'admin');

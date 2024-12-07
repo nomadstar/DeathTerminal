@@ -31,14 +31,20 @@ services:
     tty: true
     container_name: postgresdb
 
-  # Python User Service
-  uservice:
+  # servicio de información del usuario
+  informacion_service:
     build: 
-      context: ./NUservice
-      dockerfile: nuservice.dockerfile
+      context: ./informacion_service
+      dockerfile: info.dockerfile
+    environment:
+      BUS_HOST: "giadachbus"
     tty: true
-    container_name: uservice
-
+    container_name: informacion_service
+    depends_on:
+      - bus
+    volumes:
+      - ./informacion_service/logs:/app/logs
+      - ./comunicacion_bus.py:/app/bus_conf.py
 
 #servicio de prueba***+
   client:
@@ -51,6 +57,8 @@ services:
     container_name: client
     depends_on:
       - bus
+    volumes:
+      - ./comunicacion_bus.py:/app/bus_conf.py
 
   #servicio de autenticación
   gestion_usuarios:
@@ -117,6 +125,22 @@ services:
       - db
     volumes:
       - ./db_service/logs:/app/logs
+      - ./comunicacion_bus.py:/app/bus_conf.py 
+    
+    #servicio de panel de administración
+  admin_service:
+    build:
+      context: ./admin_service
+      dockerfile: admin.dockerfile
+    environment:
+      BUS_HOST: "giadachbus"
+    tty: true
+    container_name: admin_service
+    depends_on:
+      - bus
+      - db_service
+    volumes:
+      - ./admin_service/logs:/app/logs
       - ./comunicacion_bus.py:/app/bus_conf.py
 
     # Servicio de Eliminación y Penalización
@@ -130,8 +154,10 @@ services:
     container_name: penalization_service
     depends_on:
       - bus
+      - admin_service
     volumes:
       - ./penalizacionService/logs:/app/logs
+      - ./comunicacion_bus.py:/app/bus_conf.py
 
   # Servicio de Progreso
   progress_service:
