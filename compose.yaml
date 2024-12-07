@@ -221,7 +221,22 @@ services:
       - db
     volumes:
       - ./Servicio_de_guardado/logs:/app/logs
-
+  
+  #servicio de salida rapida
+  salida_rapida:
+    build:
+      context: ./salida_rapida
+      dockerfile: salida_rapida.dockerfile
+    environment:
+      BUS_HOST: "giadachbus"
+    tty: true
+    container_name: salida_rapida
+    depends_on:
+      - bus
+      - save_service
+    volumes:
+      - ./salida_rapida/logs:/app/logs
+      - ./comunicacion_bus.py:/app/bus_conf.py
 
 
 # Volúmenes gestionados

@@ -8,9 +8,27 @@ def jugar(sock):
 def informacion_usuario(sock, id):
     send_to_bus_response(sock, "infou", {"id": id})
     res= receive_from_bus(sock)
+<<<<<<< HEAD
     contenido = res.get("content", {})
     data = contenido.get("data", None)
     print(f"Respuesta recibida: {data}")
+=======
+    print(f"Respuesta recibida: {res}")
+
+#modificacion de cristoher para obtener el nivel actual
+def obtener_nivel_actual(sock, usuario_id):
+    """
+    Consulta el último nivel completado del usuario (nivel actual).
+    """
+    send_to_bus_response(sock, "progress", {"usuario_id": usuario_id})
+    res = receive_from_bus(sock)
+    nivel_actual = res.get("nivel_actual", None)
+    if nivel_actual:
+        print(f"Nivel actual recuperado: {nivel_actual}")
+    else:
+        print("No se pudo recuperar el nivel actual.")
+    return nivel_actual
+>>>>>>> 6d7133e (	modified:   Client/client.py)
 
 def sistema_foro(sock, id):
     #ver todas las publicaciones, publicar una publicación
@@ -44,11 +62,20 @@ def registro(sock):
     user_password = input("Ingrese su contraseña: ").strip()
     
  
-    send_to_bus(sock, "login", {"nombre": nombre, "email": email, "user_password": user_password})
+    send_to_bus_response(sock, "login", {"nombre": nombre, "email": email, "user_password": user_password})
 
     # Esperar respuesta
     message = receive_from_bus(sock)
     print(f"Respuesta recibida: {message}")
+
+def salida_rapida(sock, usuario_id):
+    """
+    Llama al servicio de salida rápida para guardar el nivel actual del usuario.
+    """
+    print("=== Salida rápida ===")
+    send_to_bus_response(sock, "salida_rapida", {"usuario_id": usuario_id})
+    res = receive_from_bus(sock)
+    print(f"Respuesta del servicio de salida rápida: {res.get('message', 'Sin respuesta')}")
 
 def login(sock):
     print("=== Iniciar sesión ===")
@@ -61,10 +88,11 @@ def login(sock):
     # Esperar respuesta
     respuesta = receive_from_bus(sock)
     contenido = respuesta.get("content", {})
-    id= contenido.get("id")
+    id = contenido.get("id")
     action = respuesta.get("action")
-    if "status" in respuesta  and action != "clien":
-        print("inicio de sesion exitoso")
+    if "status" in respuesta and action != "clien":
+        print("Inicio de sesión exitoso")
+        nivel_actual = obtener_nivel_actual(sock, id)  # Recuperar el nivel actual
         while True:
             print("1. Continuar jugando (falta)")
             print("2. Ver mi información")
@@ -77,7 +105,9 @@ def login(sock):
             elif opcion == "2":
                 print("Ver mi información")
                 informacion_usuario(sock, id)
+            elif opcion == "3":
                 print("Cerrando sesión...")
+                salida_rapida(sock, id)
                 break
             elif opcion == "3":
                 print("Ver el sistema de foro")
