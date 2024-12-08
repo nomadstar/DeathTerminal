@@ -12,3 +12,4 @@ INSERT INTO usuarios (nombre, email, user_password, Tipo_usuario) VALUES
 INSERT INTO progresion (usuario_id, nivel_id, fecha_completado) VALUES
 (1, 1, CURRENT_TIMESTAMP), -- Admin completó Nivel 1
 (2, 2, CURRENT_TIMESTAMP); -- Jugador1 completó Nivel 2
+

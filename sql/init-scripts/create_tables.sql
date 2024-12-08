@@ -27,3 +27,20 @@ CREATE TABLE publicaciones (
     usuario_id INT REFERENCES usuarios(id) ON DELETE CASCADE, -- Si se elimina un usuario, se eliminan sus publicaciones
     fecha_publicacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
 );
+
+CREATE TABLE Mapas (
+    id SERIAL PRIMARY KEY, 
+    mapa CHAR(100)[100]
+    titulo CHAR(20) NOT NULL,
+    descripcion CHAR(50) NOT NULL,
+    elementos CHAR(1)[64],
+    elementos_id INT[64]
+);
+
+CREATE TABLE Elementos (
+    id SERIAL PRIMARY KEY, 
+    nombre CHAR(20) NOT NULL,
+    issteppable BOOLEAN NOT NULL,
+    colides BOOLEAN NOT NULL,
+    imageid INT
+    );

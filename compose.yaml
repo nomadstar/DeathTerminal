@@ -236,6 +236,20 @@ services:
     volumes:
       - ./salida_rapida/logs:/app/logs
       - ./comunicacion_bus.py:/app/bus_conf.py
+  
+  Content-Gen:
+    build:
+      context: ./ContentGen
+      dockerfile: Dockerfile
+    environment:
+      BUS_HOST: "giadachbus"
+    tty: true
+    container_name: ContentGen
+    depends_on:
+      - bus
+    volumes:
+      - ./comunicacion_bus.py:/app/bus_conf.py
+    
 
 
 # Volúmenes gestionados

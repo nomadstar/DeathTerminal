@@ -3,7 +3,9 @@
 #include <nlohmann/json.hpp>
 
 
-
+ 
+unsigned int ip[4]={0,0,0,0}; //ip adress
+unsigned int port[2] = {0,0}; //port in and out
 
 
 struct DataStructureSentoBUS
@@ -20,6 +22,24 @@ struct DataStructureRecieveBUS
     char source[5];
     char solstatus[2];
     char msg[99997];
+};
+
+DataStructureRecieveBUS builder(char data[99999]){
+    DataStructureRecieveBUS datastruct;
+    char breakchar[5] = {data[0], data[1], data[2], data[3], data[4]};
+    try
+    {   datastruct.busmessagelenght = std::stoi(std::string(breakchar, 5));
+        for (int i = 5; i < datastruct.busmessagelenght; i++) {
+            if (i<5) {data[i]=datastruct.source[i];}
+            else if (i<7) {data[i]=datastruct.solstatus[i];}
+            else {data[i]=datastruct.msg[i];}
+        }
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    return datastruct;   
 };
 
  bool validateData(DataStructureSentoBUS data)
@@ -52,17 +72,14 @@ catch(const std::exception& e)
 };
 
 //web part
- 
-int ip[4]={};
-int portin = 0;
-int portout = 0;
+
 
 const boost::asio::ip::udp::endpoint SERVER_ENDPOINT(
     boost::asio::ip::address::from_string(std::to_string(ip[0]) + "." + std::to_string(ip[1]) + "." + std::to_string(ip[2]) + "." + std::to_string(ip[3])),  // IP address
-    portin  // Port number
+    port[0]  // Port number
 );
 
-void Server(){
+DataStructureRecieveBUS Server(){
     using namespace boost::asio;
     io_context ctx;
     ip::udp::socket socket(ctx, SERVER_ENDPOINT);
@@ -70,20 +87,20 @@ void Server(){
     socket.async_receive(buffer(data,9999),[&](std::error_code ec, std::size_t bytes_recvd){
         if(!ec){
             std::cout << "Received: " << data << std::endl;
+            return builder(data);
         }
         else{
             std::cerr << "Error: " << ec.message() << std::endl;
         }
     });
-    
     ctx.run();
 };
 
-void Client(){
+void Client(DataStructureSentoBUS data){
+    if(!validateData(data)) throw std::runtime_error("Data is too long");
     using namespace boost::asio;
     io_context ctx;
-    ip::udp::socket cltsocket(ctx, ip::udp::endpoint(ip::udp::v4(), portout));
-    DataStructureSentoBUS data = builder(nlohmann::json::parse("{\"msg\":\"Hello Bus!\"}"), "BUS");
+    ip::udp::socket cltsocket(ctx, ip::udp::endpoint(ip::udp::v4(), port[1]));
     cltsocket.async_send_to(buffer(data.msg, data.busmessagelenght), SERVER_ENDPOINT, [&](std::error_code ec, std::size_t bytes_sent){
         if(!ec){
             std::cout << "Sent " << bytes_sent << " bytes" << std::endl;
@@ -94,3 +111,23 @@ void Client(){
     });
     ctx.run();
 };
+
+void Client(nlohmann::json data, char destination[5]){
+    DataStructureSentoBUS datastruct = builder(data, destination);
+    if(!validateData(datastruct)) throw std::runtime_error("Data is too long");
+    using namespace boost::asio;
+    io_context ctx;
+    ip::udp::socket cltsocket(ctx, ip::udp::endpoint(ip::udp::v4(), port[1]));
+    cltsocket.async_send_to(buffer(datastruct.msg, datastruct.busmessagelenght), SERVER_ENDPOINT, [&](std::error_code ec, std::size_t bytes_sent){
+        if(!ec){
+            std::cout << "Sent " << bytes_sent << " bytes" << std::endl;
+        }
+        else{
+            std::cerr << "Error: " << ec.message() << std::endl;
+        }
+    });
+    ctx.run();
+};
+
+
+

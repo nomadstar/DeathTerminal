@@ -1,25 +1,25 @@
-# Use the official Ubuntu image as the base image
-FROM ubuntu:latest
+# Usa una imagen base de ollama/ollama
+FROM ollama/ollama
 
-# Set the working directory in the container
-WORKDIR /app
+# Configura el punto de montaje para /root/.ollama
+WORKDIR /root/data
 
-# Install necessary dependencies
+# Expone el puerto 11434
+EXPOSE 11434
+
 RUN apt-get update && apt-get install -y \
+    # Instala paquetes necesarios
+    gcc \
     g++ \
-    libcpprest-dev \
+    make \
+    cmake \
+    libstdc++-dev \
     libboost-all-dev \
-    libssl-dev \
-    cmake
+    nlohmann-json3-dev \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+    
 
-# Copy the source code into the container
-COPY ok_api.cpp .
 
-# Compile the C++ code
-RUN g++ -o ok_api ok_api.cpp -lcpprest -lboost_system -lboost_thread -lboost_chrono -lboost_random -lssl -lcrypto
-
-# Expose the port on which the API will listen
-EXPOSE 8080
-
-# Command to run the API when the container starts
-CMD ["./ok_api"]
+# Comando por defecto para ejecutar cuando se inicie el contenedor
+CMD ["ok_api.exe"]
