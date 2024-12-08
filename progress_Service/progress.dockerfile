@@ -4,6 +4,7 @@ WORKDIR /usr/src/app
 
 COPY pluginlist.txt .
 RUN pip install --no-cache-dir -r pluginlist.txt
+ENV PYTHONPATH=/app
 COPY . .
 
 CMD [ "python", "progress.py" ]

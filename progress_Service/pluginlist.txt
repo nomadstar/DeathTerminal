@@ -1,1 +1,2 @@
 logging  # Manejo de logs
+psycopg2-binary
