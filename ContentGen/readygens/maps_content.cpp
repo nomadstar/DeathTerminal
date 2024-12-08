@@ -138,8 +138,8 @@ public:
     
 };
 
-int main(int argc, char const *argv[])
-{   if (argc == 1) {
+int main(int argc, char const *argv[]){   
+    if (argv[1] == "Test") {
         map mymap(2, 2);
         mymap.defineelement(' ', "Empty space", false, true, false);
         mymap.defineelement('X', "Wall", true, false, false);
@@ -149,8 +149,8 @@ int main(int argc, char const *argv[])
         mymap.setelement(1, 0, 'X');
         mymap.setelement(1, 1, 'F');
         mymap.printmap();
-    } else {
-       if (argv[1] == "Game"){
+    }
+    else   {
 
         printf("Define map Width: ");
         int width;
@@ -175,13 +175,21 @@ int main(int argc, char const *argv[])
             switch (choice){
             case '1':
                 {
-                    system("clear");
-                    printf("Define element letter: ");
+                   
+                     printf("Define element letter: ");
                     char elementletter;
                     std::cin >> elementletter;
                     printf("Define element name: ");
-                    std::string elementname;
-                    std::cin >> elementname;
+                    char elementname[10];
+                    for (int i = 0; i < 10; i++)
+                    {   char letter;
+                        std::cin >> letter;
+                        if(letter=='\n'){
+                            break;
+                        }
+                        elementname[i] = letter;
+                       
+                    }
                     printf("Define a 0 or 1 no x position depending of the case \n");
                     printf("Position 1: Does the element colide? \n");
                     printf("Position 2: Is the element steppable? \n");
@@ -353,8 +361,8 @@ int main(int argc, char const *argv[])
             }
         }
 
-       }
     }
+    
     return 0;
 }
 
