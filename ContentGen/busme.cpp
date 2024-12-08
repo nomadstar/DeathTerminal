@@ -1,12 +1,15 @@
 #include <iostream>
 #include <boost/asio.hpp>
 #include <nlohmann/json.hpp>
+#include <stdlib.h>
 
 
- 
-unsigned int ip[4]={0,0,0,0}; //ip adress
-unsigned int port[2] = {0,0}; //port in and out
+// import BUS_HOST: "giadachbus"
+// import BUS_IP: "
+std::string busid = getenv("BUS_HOST");
 
+
+unsigned int port[2] = {5000,13169}; //port in and out
 
 struct DataStructureSentoBUS
 {
@@ -75,7 +78,7 @@ catch(const std::exception& e)
 
 
 const boost::asio::ip::udp::endpoint SERVER_ENDPOINT(
-    boost::asio::ip::address::from_string(std::to_string(ip[0]) + "." + std::to_string(ip[1]) + "." + std::to_string(ip[2]) + "." + std::to_string(ip[3])),  // IP address
+    boost::asio::ip::address::from_string(busid),  // IP address
     port[0]  // Port number
 );
 
