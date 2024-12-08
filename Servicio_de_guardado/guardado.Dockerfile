@@ -5,8 +5,8 @@ WORKDIR /usr/src/app
 # Copiar los archivos necesarios
 COPY requirements.txt . 
 RUN pip install --no-cache-dir -r requirements.txt
+ENV PYTHONPATH=/app
 
 COPY . .
 
-# Cambiar CMD para evitar que se inicie automáticamente
-CMD ["tail", "-f", "/dev/null"]
+CMD [ "python", "guardado.py" ] 

@@ -17,6 +17,7 @@ CREATE TABLE progresion (
     usuario_id INT REFERENCES usuarios(id),
     nivel_id INT REFERENCES niveles(id),
     fecha_completado TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    PRIMARY KEY (usuario_id, nivel_id)
 );
 
 CREATE TABLE publicaciones (
