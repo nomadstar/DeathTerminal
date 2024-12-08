@@ -187,6 +187,7 @@ services:
       - bus
     volumes:
       - ./ProgressService/logs:/app/logs # Logs de progreso
+      - ./comunicacion_bus.py:/app/bus_conf.py
 
     # Servicio de Reinicio de Instancias
   instance_reset_service:
