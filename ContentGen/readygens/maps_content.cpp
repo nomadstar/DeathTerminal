@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <nlohmann/json.hpp>
+#include <fstream>
 
 struct element
 {   char elementletter;
@@ -167,6 +169,7 @@ int main(int argc, char const *argv[])
             printf("5. Print element info\n");
             printf("6. Set map elements\n");
             printf("7. Print map\n");
+            printf("8. Save Map");
             printf("q. Quit\n");
             std::cin >> choice;
             switch (choice){
@@ -315,6 +318,38 @@ int main(int argc, char const *argv[])
                     mymap.printmap();
                     break;
                 }
+            case '8':
+            //Send to jsons
+            //One for the map and one for the elements
+            {
+                nlohmann::json mapjson;
+                mapjson["width"] = mymap.getwidth();
+                mapjson["height"] = mymap.getheight();
+                std::vector<std::vector<char>> mapdist = mymap.getmapdist();
+                for (int i = 0; i < mymap.getheight(); i++)
+                {
+                    for (int j = 0; j < mymap.getwidth(); j++)
+                    {
+                        mapjson["mapdist"][i][j] = mapdist[i][j];
+                    }
+                }
+                nlohmann::json elementsjson;
+                std::vector<element> elements = mymap.getmapelements();
+                for (int i = 0; i < elements.size(); i++)
+                {
+                    elementsjson["elements"][i]["elementletter"] = elements[i].elementletter;
+                    elementsjson["elements"][i]["elementname"] = elements[i].elementname;
+                    elementsjson["elements"][i]["colides"] = elements[i].colides;
+                    elementsjson["elements"][i]["issteppable"] = elements[i].issteppable;
+                    elementsjson["elements"][i]["isvisible"] = elements[i].isvisible;
+                    elementsjson["elements"][i]["description"] = elements[i].description;
+                }
+                std::ofstream mapfile("map.json");
+                mapfile << mapjson.dump(4);
+                std::ofstream elementsfile("elements.json");
+                elementsfile << elementsjson.dump(4);
+                break;
+            }
             }
         }
 

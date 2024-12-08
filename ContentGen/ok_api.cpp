@@ -2,9 +2,9 @@
 #include <thread>
 #include <chrono>
 #include <nlohmann/json.hpp>
-int main(int argc, char const *argv[])
-{   
-    std::string json_string;
+
+void makechoice(){
+ std::string json_string;
     nlohmann::json json_data;
 
     while (true) {
@@ -51,4 +51,9 @@ int main(int argc, char const *argv[])
     while (true) {
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
+};
+
+int main(int argc, char const *argv[])
+{   
+   
 }
