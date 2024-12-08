@@ -1,10 +1,15 @@
-#include <iostream>
+
 #include <thread>
 #include <chrono>
 #include <nlohmann/json.hpp>
+#include <string>
+#include "busme.cpp"
 
-void makechoice(){
- std::string json_string;
+
+
+
+
+void makechoice(std::string json_string){
     nlohmann::json json_data;
 
     while (true) {
@@ -52,8 +57,40 @@ void makechoice(){
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 };
+/*struct DataStructureRecieveBUS
+{
+    unsigned int busmessagelenght : 17;
+    char source[5];
+    char solstatus[2];
+    char msg[99997];
+};*/
+DataStructureRecieveBUS interpeter(std::string message){
+    if (sizeof(message) > 100000) {
+        std::cerr << "Message is too long" << std::endl;
+        return;
+    }
+    DataStructureRecieveBUS data;
+    // Extract busmessagelenght
+    data.busmessagelenght = std::stoi(message.substr(0, 17));
 
+    // Extract source
+    std::strncpy(data.source, message.substr(17, 5).c_str(), 5);
+    data.source[4] = '\0'; // Ensure null-termination
+
+    // Extract solstatus
+    std::strncpy(data.solstatus, message.substr(22, 2).c_str(), 2);
+    data.solstatus[1] = '\0'; // Ensure null-termination
+
+    // Extract msg
+    std::strncpy(data.msg, message.substr(24).c_str(), sizeof(data.msg) - 1);
+    data.msg[sizeof(data.msg) - 1] = '\0'; // Ensure null-termination
+
+    return data;
+}
 int main(int argc, char const *argv[])
 {   
-   
-}
+     
+     
+    }
+     
+
