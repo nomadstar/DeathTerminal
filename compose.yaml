@@ -211,9 +211,6 @@ services:
       - "5002:5002"  # Puerto que expondrá el contenedor
     environment:
       BUS_HOST: "giadachbus"
-      POSTGRES_USER: "user"
-      POSTGRES_PASSWORD: "password"
-      POSTGRES_DB: "db"
     tty: true
     container_name: save_service
     depends_on:
@@ -221,6 +218,7 @@ services:
       - db
     volumes:
       - ./Servicio_de_guardado/logs:/app/logs
+      - ./comunicacion_bus.py:/app/bus_conf.py
   
   #servicio de salida rapida
   salida_rapida:
