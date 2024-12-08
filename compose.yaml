@@ -237,7 +237,7 @@ services:
       - ./salida_rapida/logs:/app/logs
       - ./comunicacion_bus.py:/app/bus_conf.py
   
-  Content-Gen:
+  contentgen:
     build:
       context: ./ContentGen
       dockerfile: Dockerfile
