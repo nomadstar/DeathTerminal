@@ -1,5 +1,6 @@
 import os
 import psycopg2
+import logging
 from datetime import datetime
 from bus_conf import send_to_bus_response,register_service, receive_from_bus
 
@@ -7,7 +8,7 @@ from bus_conf import send_to_bus_response,register_service, receive_from_bus
 LOG_DIR = "./logs"
 os.makedirs(LOG_DIR, exist_ok=True)
 logging.basicConfig(
-    filename=os.path.join(LOG_DIR, "penalization.log"),
+    filename=os.path.join(LOG_DIR, "guardado.log"),
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
@@ -26,7 +27,7 @@ def handle_response(sock, content):
         if isinstance(data, dict): #modificacion o inserccion
             if "consulta exitosa" in data: 
                 logging.info(f"Modificación exitosa: {data}")
-                send_to_bus_response(sock, "savee", {"message": "Modificación exitosa", "data": data})
+                send_to_bus_response(sock, "savee", {"message": "oka", "data": data})
             else:
                 logging.warning(f"Formato inesperado en el diccionario: {data}")
                 send_to_bus_response(sock, "savee", {"message": "Formato inesperado en el resultado"})
@@ -37,7 +38,6 @@ def handle_response(sock, content):
         logging.error(f"Error al manejar respuesta: {e}")
         send_to_bus_response(sock, "savee", {"message": "Error en el servidor"})
 
-
 def handle_solicitud(sock, content):
     try:
         """ 
@@ -47,24 +47,19 @@ def handle_solicitud(sock, content):
         id_usuario= contenido.get("id_usuario", None)
         id_nivel= contenido.get("id_nivel", None)
         #guardar el progreso
-       sql = f"""INSERT INTO progresion (usuario_id, nivel_id, fecha_completado)
-                    VALUES ({id_usuario}, {id_nivel}, CURRENT_TIMESTAMP)
-                    ON CONFLICT (usuario_id, nivel_id)
-                    DO UPDATE SET fecha_completado = CURRENT_TIMESTAMP;"""
+        sql = f"""
+        INSERT INTO progresion (usuario_id, nivel_id, fecha_completado)
+        VALUES ({id_usuario}, {id_nivel}, CURRENT_TIMESTAMP)
+        ON CONFLICT (usuario_id, nivel_id)
+        DO UPDATE SET fecha_completado = CURRENT_TIMESTAMP;
+        """
         send_to_bus_response(sock, "condb", {"sql": sql})
 
-        
     except Exception as e:
         logging.error(f"Error al manejar solicitud de login: {e}")
         send_to_bus_response(sock, "savee", {"message": "Error en el servidor"})
 
 
-
-if __name__ == "__main__":
-    # Simulación de entrada de usuario
-    usuario_id = int(input("Ingrese el usuario_id: "))
-    nivel_id = int(input("Ingrese el nivel_id: "))
-    guardar_progreso(usuario_id, nivel_id)
 
 if __name__ == "__main__":
     logging.info("Iniciando servicio de gestión de panel de guardado...")
