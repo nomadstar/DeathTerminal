@@ -1,68 +1,63 @@
-import requests
+import os
+import logging
+import json
+import socket
+from bus_conf import send_to_bus_response,register_service, receive_from_bus
+ 
+#si se detecta una falla repentina, se llama al servicio de salida rápida para guardar el nivel actual del usuario.
 
-def obtener_nivel_actual(usuario_id):
-    """
-    Consulta el nivel actual del usuario desde el servicio de progreso.
-    """
+# Configuración de logging
+LOG_DIR = "./logs"
+os.makedirs(LOG_DIR, exist_ok=True)
+logging.basicConfig(
+    filename=os.path.join(LOG_DIR, "salida_rapida.log"),
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
+def handle_solicitud(sock, content):
+    #recibo el id del usuario
     try:
-        url_nivel_actual = "http://localhost:5003/nivel_actual"  # URL del servicio de progreso
-        response = requests.post(url_nivel_actual, json={"usuario_id": usuario_id})
-        
-        if response.status_code == 200:
-            nivel_actual = response.json().get("nivel_actual")
-            print(f"Nivel actual recuperado: {nivel_actual}")
-            return nivel_actual
+        contenido=content.get("content", {})
+        id_usuario=contenido.get("usuario_id", None)
+
+        #realizar un guardado en el nivel que se quedo, sin importar si lo completó o no
+        #consultar al servico de progreso
+        send_to_bus_response(sock, "progr", {"id": id_usuario})
+        respuesta=receive_from_bus(sock)
+        contenido=respuesta.get("content", {})
+        id_nivel=contenido.get("id_nivel", None)
+        if id_nivel:
+            #guardar en el sistema con el servicio de guardado
+            send_to_bus_response(sock, "savee", {"id_usuario": id_usuario, "id_nivel": id_nivel})
+            res=receive_from_bus(sock)
+            content=res.get("content", {})
+            data=content.get("data", None)
+            if data:
+                logging.info(f"Guardado exitoso")
+                send_to_bus_response(sock, "salir", {"message": "Guardado exitoso"})
+            else:
+                logging.error(f"Error al guardar")
+                send_to_bus_response(sock, "salir", {"message": "Error al guardar"})
         else:
-            print(f"Error al obtener el nivel actual: {response.json().get('message')}")
-            return None
+            logging.error(f"Error al obtener el nivel")
+            send_to_bus_response(sock, "salir", {"message": "Error al obtener el nivel"})
     except Exception as e:
-        print(f"Error al comunicarse con el servicio de progreso: {e}")
-        return None
-
-def salida_rapida(usuario_id):
-    """
-    Guarda automáticamente el nivel actual del usuario en la tabla progresion.
-    """
-    try:
-        # Paso 1: Obtener el nivel actual del usuario
-        nivel_actual = obtener_nivel_actual(usuario_id)
-        if not nivel_actual:
-            return {
-                "status": "error",
-                "message": "No se pudo obtener el nivel actual. No se guardó el progreso."
-            }
-
-        # Paso 2: Llamar al Servicio de Guardado
-        print(f"Guardando progreso del usuario {usuario_id} en el nivel {nivel_actual}...")
-        url_guardado = "http://localhost:5002/guardar_progreso"  # URL del servicio de guardado
-        data = {
-            "usuario_id": usuario_id,
-            "nivel_id": nivel_actual
-        }
-        response = requests.post(url_guardado, json=data)
-        
-        # Validar la respuesta del Servicio de Guardado
-        if response.status_code == 200:
-            print("Progreso guardado exitosamente.")
-            return {
-                "status": "success",
-                "message": "Progreso guardado exitosamente. Puedes salir del juego."
-            }
-        else:
-            print(f"Error al guardar el progreso: {response.json().get('error')}")
-            return {
-                "status": "error",
-                "message": f"Error al guardar el progreso: {response.json().get('error')}"
-            }
-
-    except Exception as e:
-        print(f"Error en el servicio de salida rápida: {e}")
-        return {
-            "status": "error",
-            "message": f"Error en el servicio de salida rápida: {e}"
-        }
-
+        logging.error(f"Error al manejar solicitud de información: {e}")
+        send_to_bus_response(sock, "salir", {"message": "Error en el servidor"})
 if __name__ == "__main__":
-    usuario_id = int(input("Ingrese el ID del usuario: "))
-    resultado = salida_rapida(usuario_id)
-    print(resultado)
+    logging.info("Iniciando servicio de salida repentina..")
+    print("Iniciando servicio de salida repentina...")
+    sock=register_service("salir")
+    try:
+        while True:
+            message = receive_from_bus(sock)
+            action = message.get("action")
+            if not message:
+                continue
+            if action == "salir": #solicitud
+                handle_solicitud(sock,message)
+            else:
+                logging.error(f"mensaje a otro servidor")
+    except Exception as e:
+        logging.error(f"Error: {e}")
