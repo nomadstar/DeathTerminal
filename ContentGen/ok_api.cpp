@@ -1,50 +1,59 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <nlohmann/json.hpp>
 
-/*
-Contenido necesario de generar:
+void makechoice(){
+ std::string json_string;
+    nlohmann::json json_data;
 
-1. Inforomación de mapas
-2. Información de objetos dentro del mapa
-3. Información de NPC's dentro del mapa
-4. Información de objetos ocultos dentro del mapa
-5. Información de posibles interacciones con los NPC's y objetos
-6. Información sobre los escenarios de combate / interacciones
-7. Información sobre los items que se pueden obtener y los requisitos para obtenerlos
+    while (true) {
+        std::cout << "Waiting for JSON input: ";
+        std::getline(std::cin, json_string);
 
-Requisitos basicos de la API:
+        try {
+            json_data = nlohmann::json::parse(json_string);
+            break; // Exit loop if JSON is successfully parsed
+        } catch (nlohmann::json::parse_error& e) {
+            std::cerr << "Invalid JSON: " << e.what() << std::endl;
+        }
+    }
+    std::thread json_thread([&]() {
+        while (true) {
+            std::cout << "Waiting for JSON input: ";
+            std::getline(std::cin, json_string);
 
-1. Comunicarse con el BUS de datos
-2. Recibir y enviar datos
-3. Procesar datos
-4. Enviar datos a la interfaz de usuario
-5. Recibir datos de la interfaz de usuario
-6. Procesar datos de la interfaz de usuario
-7. Enviar datos al BUS de datos
+            try {
+                json_data = nlohmann::json::parse(json_string);
+                std::cout << "Received valid JSON: " << json_data.dump() << std::endl;
 
-APIS utiles:
+                // Process the JSON data
+                if (json_data.contains("mode")) {
+                    std::string mode = json_data["mode"];
 
-1. API de generacion de contenido con IA
-2. API de creación de mapas
-3. API de creación de objetos
-4. API de creación de NPC's
-5. API de creación de objetos ocultos
-6. API de creación de interacciones
-7. API de creación de escenarios de combate
-8. API de creación de items
+                    if (mode == "M") { // Stands for Manual mode
+                        execlp("ContentGen/readygens/maps_content.cpp", "ContentGen/readygens/maps_content.cpp", "Game", NULL);
+                    } else {
+                        std::cerr << "Unknown mode: " << mode << std::endl;
+                    }
+                } else {
+                    std::cerr << "JSON does not contain 'mode' key." << std::endl;
+                }
+            } catch (nlohmann::json::parse_error& e) {
+                std::cerr << "Invalid JSON: " << e.what() << std::endl;
+            }
+        }
+    });
 
+    json_thread.detach();
 
-
-*/
-
-
-
-
-
+    // Keep the main thread alive
+    while (true) {
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+    }
+};
 
 int main(int argc, char const *argv[])
-{
-    printf("Hello, World!\n");
-    return 0;
+{   
+   
 }
