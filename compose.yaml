@@ -7,14 +7,14 @@ services:
     container_name: giadachbus
 
   # MonoGame container para el frontend tuneado
-  frontend:
-    build:
-      context: ./frontiface
-      dockerfile: monogame.dockerfile
-    volumes:
-      - ./frontiface/gamefiles:/usr/src/app # Cambia este directorio donde trabajes con el MonoGame
-    tty: true
-    container_name: MonoGameFrontend
+  #frontend:
+  #  build:
+  #    context: ./frontiface
+  #    dockerfile: monogame.dockerfile
+  #  volumes:
+  #    - ./frontiface/gamefiles:/usr/src/app # Cambia este directorio donde trabajes con el MonoGame
+  #  tty: true
+  #  container_name: MonoGameFrontend
 
   # Postgres Database
   db:

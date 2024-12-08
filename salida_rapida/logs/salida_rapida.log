@@ -59,3 +59,35 @@
 2024-12-08 04:03:56,495 - INFO - Mensaje recibido: 00080savee OK {'message': 'Modificación exitosa', 'data': {'consulta exitosa': 1}}
 2024-12-08 04:03:56,495 - INFO - Guardado exitoso
 2024-12-08 04:03:56,495 - INFO - mensaje enviado: 00036salir{"message": "Guardado exitoso"}
+2024-12-08 22:10:45,733 - INFO - Iniciando servicio de salida repentina..
+2024-12-08 22:10:45,735 - INFO - Conectado al bus
+2024-12-08 22:10:45,735 - INFO - Mensaje de registro: 00010sinitsalir
+2024-12-08 22:10:45,736 - INFO - Respuesta ceribida: sinitOKsalir
+2024-12-08 22:10:45,736 - INFO - Servicio registrado con prefijo: salir
+2024-12-08 22:14:32,207 - INFO - Iniciando servicio de salida repentina..
+2024-12-08 22:14:32,209 - INFO - Conectado al bus
+2024-12-08 22:14:32,209 - INFO - Mensaje de registro: 00010sinitsalir
+2024-12-08 22:14:32,209 - INFO - Respuesta ceribida: sinitOKsalir
+2024-12-08 22:14:32,210 - INFO - Servicio registrado con prefijo: salir
+2024-12-08 22:47:12,233 - INFO - Iniciando servicio de salida repentina..
+2024-12-08 22:47:12,234 - INFO - Conectado al bus
+2024-12-08 22:47:12,235 - INFO - Mensaje de registro: 00010sinitsalir
+2024-12-08 22:47:12,235 - INFO - Respuesta ceribida: sinitOKsalir
+2024-12-08 22:47:12,235 - INFO - Servicio registrado con prefijo: salir
+2024-12-08 22:52:55,782 - INFO - Iniciando servicio de salida repentina..
+2024-12-08 22:52:55,783 - INFO - Conectado al bus
+2024-12-08 22:52:55,783 - INFO - Mensaje de registro: 00010sinitsalir
+2024-12-08 22:52:55,784 - INFO - Respuesta ceribida: sinitOKsalir
+2024-12-08 22:52:55,784 - INFO - Servicio registrado con prefijo: salir
+2024-12-08 22:58:28,190 - INFO - Iniciando servicio de salida repentina..
+2024-12-08 22:58:28,191 - INFO - Conectado al bus
+2024-12-08 22:58:28,192 - INFO - Mensaje de registro: 00010sinitsalir
+2024-12-08 22:58:28,192 - INFO - Respuesta ceribida: sinitOKsalir
+2024-12-08 22:58:28,192 - INFO - Servicio registrado con prefijo: salir
+2024-12-08 23:02:58,041 - INFO - Iniciando servicio de salida repentina..
+2024-12-08 23:02:58,079 - INFO - Conectado al bus
+2024-12-08 23:02:58,079 - INFO - Mensaje de registro: 00010sinitsalir
+2024-12-08 23:02:58,080 - INFO - Respuesta ceribida: sinitOKsalir
+2024-12-08 23:02:58,080 - INFO - Servicio registrado con prefijo: salir
+2024-12-08 23:03:05,339 - ERROR - Error al recibir mensaje del bus: Conexión cerrada mientras se leía el socket
+2024-12-08 23:03:05,341 - ERROR - Error: 'NoneType' object has no attribute 'get'

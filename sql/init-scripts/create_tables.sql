@@ -30,7 +30,7 @@ CREATE TABLE publicaciones (
 
 CREATE TABLE Mapas (
     id SERIAL PRIMARY KEY, 
-    mapa CHAR(100)[100]
+    mapa CHAR(100)[100],
     titulo CHAR(20) NOT NULL,
     descripcion CHAR(50) NOT NULL,
     elementos CHAR(1)[64],
