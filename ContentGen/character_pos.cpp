@@ -1,5 +1,6 @@
 #include <iostream>
 #include <conio.h>
+
 struct position{
         int x;
         int y;
@@ -68,5 +69,8 @@ int main(){
     }
     }
     return 0;
+
+
+
 
 }
