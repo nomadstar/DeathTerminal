@@ -203,6 +203,7 @@ services:
       - bus
     volumes:
       - ./InstanceResetService/logs:/app/logs # Logs de reinicios
+      - ./comunicacion_bus.py:/app/bus_conf.py
       
   save_service:
     build:
@@ -250,6 +251,50 @@ services:
     volumes:
       - ./comunicacion_bus.py:/app/bus_conf.py
     
+    #servicio de multiplayer
+  multiplayer_service:
+    build:
+      context: ./multiplayer_service
+      dockerfile: multiplayer.dockerfile
+    environment:
+      BUS_HOST: "giadachbus"
+    tty: true
+    container_name: multiplayer_service
+    depends_on:
+      - bus
+    volumes:
+      - ./multiplayer_service/logs:/app/logs
+      - ./comunicacion_bus.py:/app/bus_conf.py
+  
+  #servicio de emparejamiento asincronico
+  buscar_jugador_service:
+    build:
+      context: ./buscar_jugador_service
+      dockerfile: buscar_jugador.dockerfile
+    environment:
+      BUS_HOST: "giadachbus"
+    tty: true
+    container_name: buscar_jugador_service
+    depends_on:
+      - bus
+    volumes:
+      - ./buscar_jugador_service/logs:/app/logs
+      - ./comunicacion_bus.py:/app/bus_conf.py
+
+  #servicio de generacion de contenido
+  contenido_service:
+    build:
+      context: ./contenido_service
+      dockerfile: contenido.dockerfile
+    environment:
+      BUS_HOST: "giadachbus"
+    tty: true
+    container_name: contenido_service
+    depends_on:
+      - bus
+    volumes:
+      - ./contenido_service/logs:/app/logs
+      - ./comunicacion_bus.py:/app/bus_conf.py
 
 
 # Volúmenes gestionados
