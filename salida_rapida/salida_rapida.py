@@ -19,11 +19,11 @@ def handle_solicitud(sock, content):
     #recibo el id del usuario
     try:
         contenido=content.get("content", {})
-        id_usuario=contenido.get("usuario_id", None)
+        id_usuario=contenido.get("id", None)
 
         #realizar un guardado en el nivel que se quedo, sin importar si lo completó o no
         #consultar al servico de progreso
-        send_to_bus_response(sock, "progr", {"id": id_usuario})
+        send_to_bus_response(sock, "progr", {"id": id_usuario, "opcion": 1})
         respuesta=receive_from_bus(sock)
         contenido=respuesta.get("content", {})
         id_nivel=contenido.get("id_nivel", None)
