@@ -1,14 +1,15 @@
 import logging
 from bus_conf import send_to_bus_response,register_service, receive_from_bus
 
-def informacion_admin(sock):
+def informacion_admin(sock,id):
     while True:
         print("1. Ver información de los usuarios")
         print("2. Eliminar usuario, segun id")
         print("3. Ver los niveles")
         print("4. Modificar niveles")
         print("5. Eliminar niveles")
-        print("6. Salir")
+        print("6. Generar contenido en los niveles")
+        print("7. Salir")
         opcion = input("Seleccione una opción: ").strip()
         if opcion == "1":
             send_to_bus_response(sock,"iadmi",{"opcion":opcion}) 
@@ -26,6 +27,10 @@ def informacion_admin(sock):
             id_eliminar = input("Ingrese el ID del nivel a eliminar: ").strip()
             send_to_bus_response(sock, "iadmi", {"opcion":opcion, "id": id_eliminar})
         elif opcion == "6":
+            pregunta = input("Ingrese la pregunta: ").strip()
+            respuesta = input("Ingrese la respuesta: ").strip()
+            send_to_bus_response(sock, "conte", {"pregunta": pregunta, "respuesta": respuesta, "id": id})
+        elif opcion == "7":
             break
         else:
             print("Opción inválida")
@@ -44,8 +49,8 @@ def admin(sock):
     respuesta = receive_from_bus(sock)
     contenido = respuesta.get("content", {})
     id= contenido.get("id")
-    action = respuesta.get("action")
-    if "status" in respuesta  and action != "clien":
+    message = contenido.get("message")
+    if "credenciales correctas" in message:
         print("inicio de sesion exitoso")
         send_to_bus_response(sock, "permi", {"id":id})
         res= receive_from_bus(sock)
@@ -53,7 +58,7 @@ def admin(sock):
         msg= cont.get("message")
         
         if msg == True: #es administrador
-            informacion_admin(sock)
+            informacion_admin(sock,id)
         else:
             print("No tiene permisos de administrador")
     else:

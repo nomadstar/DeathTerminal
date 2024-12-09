@@ -1,9 +1,69 @@
 import logging
 from bus_conf import send_to_bus_response,register_service, receive_from_bus
 
-def jugar(sock):
+def completar_nivel(sock, usuario_id, nivel):
+    while True:
+        print("1. completar nivel")
+        print("2. reiniciar nivel")
+        print("3. salir")
+        opcion = input("Seleccione una opción: ").strip()
+        if opcion == "1":
+            send_to_bus_response(sock, "progr", {"id": usuario_id, "opcion": 2, "nivel": nivel})
+        elif opcion == "2":
+            send_to_bus_response(sock, "reini", {"id": usuario_id, "nivel": nivel})
+        elif opcion == "3":
+            break
+        else:
+            print("Opción inválida")
+        respuesta = receive_from_bus(sock)
+        contenido = respuesta.get("content", {})
+        mensaje = contenido.get("message", None)
+        print(f"Respuesta recibida: {mensaje}")
+
+def jugar(sock,id):
     print("=== Jugar ===")
-    print("Falta implementar")
+    #de acuerdo al nivel en que me encuentre voy a poder jugar
+    # en_proceso -> nivel actual
+    # completado -> nivel actual + 1
+    #logica del juego (por implementar)
+    nivel_actual = obtener_nivel_actual(sock, id)
+    while True:
+        print("1. Jugar solitiario")
+        print("2. Jugar multijugador")
+        print("3. Salir")
+        opcion = input("Seleccione una opción: ").strip()
+        if opcion == "1":
+            print("Jugando...")
+            print("Nivel actual: ", nivel_actual)
+            completar_nivel(sock, id, nivel_actual)
+            # Aquí va la lógica del juego
+            # Por ahora solo se muestra un mensaje
+
+        elif opcion == "2":
+            print("Jugando multijugador...")
+            print("Nivel actual: ", nivel_actual)
+            # encontrar un usuario el cual tenga el mismo nivel actual
+            send_to_bus_response(sock, "busca", {"id": id, "nivel": nivel_actual})
+            res = receive_from_bus(sock)
+            contenido = res.get("content", {})
+            usuario_encontrado = contenido.get("usuario_encontrado", None)
+            id_encontrado = contenido.get("id_encontrado", None)
+            if usuario_encontrado:
+                print(f"Usuario encontrado: {usuario_encontrado}")
+                # logica del juego
+                #suponiendo que ya se paso de nivel
+                send_to_bus_response(sock, "multi", {"id_usuario": id, "id_encontrado": id_encontrado, "id_nivel": nivel_actual})
+                print("Logica para jugar")
+            else:
+                print("No se encontró un usuario con el mismo nivel actual")
+
+        elif opcion == "3":
+            print("Saliendo del juego...")
+            salida_rapida(sock, id)
+            break
+        else:
+            print("Opción inválida")
+    
 
 def informacion_usuario(sock, id):
     send_to_bus_response(sock, "infou", {"id": id})
@@ -18,15 +78,16 @@ def obtener_nivel_actual(sock, usuario_id):
     """
     Consulta el último nivel completado del usuario (nivel actual).
     """
-    send_to_bus_response(sock, "progr", {"id": usuario_id})
+    send_to_bus_response(sock, "progr", {"id": usuario_id, "opcion": 1})
     res = receive_from_bus(sock)
     contenido = res.get("content", {})
     nivel_actual = contenido.get("nivel_actual", None)
+    nivel_id = contenido.get("id_nivel", None)
     if nivel_actual:
         print(f"Nivel actual recuperado: {nivel_actual}")
     else:
         print("El usuario no ha jugado en un nivel.")
-    return nivel_actual
+    return nivel_id
 
 def sistema_foro(sock, id):
     #ver todas las publicaciones, publicar una publicación
@@ -71,7 +132,7 @@ def salida_rapida(sock, usuario_id):
     Llama al servicio de salida rápida para guardar el nivel actual del usuario.
     """
     print("=== Salida rápida ===")
-    send_to_bus_response(sock, "salir", {"usuario_id": usuario_id})
+    send_to_bus_response(sock, "salir", {"id": usuario_id})
     res = receive_from_bus(sock)
     contenido = res.get("content", {})
     mensaje = contenido.get("message", None)
@@ -92,7 +153,6 @@ def login(sock):
     message = contenido.get("message")
     if "credenciales correctas" in message:
         print("Inicio de sesión exitoso")
-        nivel_actual = obtener_nivel_actual(sock, id)  # Recuperar el nivel actual
         while True:
             print("1. Continuar jugando (falta)")
             print("2. Ver mi información")
@@ -101,7 +161,7 @@ def login(sock):
             opcion = input("Seleccione una opción: ").strip()
             if opcion == "1":
                 print("Continuar jugando")
-                jugar(sock)
+                jugar(sock,id)
             elif opcion == "2":
                 print("Ver mi información")
                 informacion_usuario(sock, id)
