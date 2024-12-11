@@ -27,3 +27,11 @@ CREATE TABLE publicaciones (
     usuario_id INT REFERENCES usuarios(id) ON DELETE CASCADE, -- Si se elimina un usuario, se eliminan sus publicaciones
     fecha_publicacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
 );
+CREATE TABLE trivias (
+    id SERIAL PRIMARY KEY,
+    nivel_id INT REFERENCES niveles(id) ON DELETE CASCADE, -- Relación con el nivel
+    pregunta TEXT NOT NULL, -- La pregunta de la trivia
+    respuesta TEXT NOT NULL, -- La respuesta correcta
+    creado_por INT REFERENCES usuarios(id) ON DELETE SET NULL, -- Administrador que creó la trivia
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Fecha de creación
+);
