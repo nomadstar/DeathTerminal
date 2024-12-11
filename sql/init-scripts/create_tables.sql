@@ -10,14 +10,17 @@ CREATE TABLE usuarios (
 CREATE TABLE niveles (
     id SERIAL PRIMARY KEY,
     nombre_nivel VARCHAR(25),
+    creado_por INT REFERENCES usuarios(id) ON DELETE SET NULL, -- Administrador que creó el nivel
     dificultad INT
 );
 
 CREATE TABLE progresion (
     usuario_id INT REFERENCES usuarios(id),
     nivel_id INT REFERENCES niveles(id),
-    fecha_completado TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (usuario_id, nivel_id)
+    estado VARCHAR(25),
+    fecha_inicio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_completado TIMESTAMP DEFAULT CURRENT_TIMESTAMP --,
+    -- PRIMARY KEY (usuario_id, nivel_id)
 );
 
 CREATE TABLE publicaciones (

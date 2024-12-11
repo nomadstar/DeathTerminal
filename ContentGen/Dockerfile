@@ -2,11 +2,15 @@
 FROM ollama/ollama:latest
 # Instala Python
 RUN apt-get update && apt-get install -y python3 python3-pip && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN pip3 install ollama
+RUN pip3 install psycopg2-binary
 
-# Configura el punto de montaje para /root/.ollama
-WORKDIR /root/data
-# Expone el puerto 11434
-EXPOSE 11434
+# Establece el directorio de trabajo
+WORKDIR /root/.ollama
+COPY pycode/* .
+
+# Descarga el modelo llama3 usando ollama
+RUN python3 comukey.py
+
 
 # Comando por defecto para ejecutar cuando se inicie el contenedor
-CMD ["python3", "comukey.py"]

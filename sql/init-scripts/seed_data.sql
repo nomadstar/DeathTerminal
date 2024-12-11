@@ -18,3 +18,18 @@ INSERT INTO progresion (usuario_id, nivel_id, estado, fecha_inicio, fecha_comple
 INSERT INTO trivias (nivel_id, pregunta, respuesta, creado_por) VALUES 
 (1, '¿Cuál es la capital de Francia?', 'París', 4),
 (1, '¿En qué año comenzó la Segunda Guerra Mundial?', '1939', 4); 
+
+
+CREATE OR REPLACE FUNCTION insert_progresion()
+RETURNS TRIGGER AS $$
+BEGIN
+    INSERT INTO progresion (usuario_id, nivel_id)
+    VALUES (NEW.id, 1);
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER after_insert_usuarios
+AFTER INSERT ON usuarios
+FOR EACH ROW
+EXECUTE FUNCTION insert_progresion();

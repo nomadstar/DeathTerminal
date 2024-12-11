@@ -1,0 +1,30 @@
+2024-12-11 00:58:05,384 - INFO - Iniciando servicio de salida repentina..
+2024-12-11 00:58:05,385 - INFO - Conectado al bus
+2024-12-11 00:58:05,386 - INFO - Mensaje de registro: 00010sinitsalir
+2024-12-11 00:58:05,386 - INFO - Respuesta ceribida: sinitOKsalir
+2024-12-11 00:58:05,386 - INFO - Servicio registrado con prefijo: salir
+2024-12-11 01:09:05,989 - INFO - Iniciando servicio de salida repentina..
+2024-12-11 01:09:05,990 - INFO - Conectado al bus
+2024-12-11 01:09:05,991 - INFO - Mensaje de registro: 00010sinitsalir
+2024-12-11 01:09:05,991 - INFO - Respuesta ceribida: sinitOKsalir
+2024-12-11 01:09:05,991 - INFO - Servicio registrado con prefijo: salir
+2024-12-11 01:14:01,167 - INFO - Iniciando servicio de salida repentina..
+2024-12-11 01:14:01,168 - INFO - Conectado al bus
+2024-12-11 01:14:01,169 - INFO - Mensaje de registro: 00010sinitsalir
+2024-12-11 01:14:01,169 - INFO - Respuesta ceribida: sinitOKsalir
+2024-12-11 01:14:01,170 - INFO - Servicio registrado con prefijo: salir
+2024-12-11 01:28:32,995 - INFO - Iniciando servicio de salida repentina..
+2024-12-11 01:28:32,997 - INFO - Conectado al bus
+2024-12-11 01:28:32,997 - INFO - Mensaje de registro: 00010sinitsalir
+2024-12-11 01:28:32,997 - INFO - Respuesta ceribida: sinitOKsalir
+2024-12-11 01:28:32,997 - INFO - Servicio registrado con prefijo: salir
+2024-12-11 01:30:55,495 - INFO - Iniciando servicio de salida repentina..
+2024-12-11 01:30:55,497 - INFO - Conectado al bus
+2024-12-11 01:30:55,497 - INFO - Mensaje de registro: 00010sinitsalir
+2024-12-11 01:30:55,497 - INFO - Respuesta ceribida: sinitOKsalir
+2024-12-11 01:30:55,497 - INFO - Servicio registrado con prefijo: salir
+2024-12-11 01:38:43,261 - INFO - Iniciando servicio de salida repentina..
+2024-12-11 01:38:43,262 - INFO - Conectado al bus
+2024-12-11 01:38:43,262 - INFO - Mensaje de registro: 00010sinitsalir
+2024-12-11 01:38:43,263 - INFO - Respuesta ceribida: sinitOKsalir
+2024-12-11 01:38:43,263 - INFO - Servicio registrado con prefijo: salir
