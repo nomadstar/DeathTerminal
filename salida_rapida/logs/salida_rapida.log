@@ -28,3 +28,8 @@
 2024-12-11 01:38:43,262 - INFO - Mensaje de registro: 00010sinitsalir
 2024-12-11 01:38:43,263 - INFO - Respuesta ceribida: sinitOKsalir
 2024-12-11 01:38:43,263 - INFO - Servicio registrado con prefijo: salir
+2024-12-11 02:55:59,679 - INFO - Iniciando servicio de salida repentina..
+2024-12-11 02:55:59,680 - INFO - Conectado al bus
+2024-12-11 02:55:59,681 - INFO - Mensaje de registro: 00010sinitsalir
+2024-12-11 02:55:59,681 - INFO - Respuesta ceribida: sinitOKsalir
+2024-12-11 02:55:59,681 - INFO - Servicio registrado con prefijo: salir
